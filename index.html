@@ -2,38 +2,47 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Hello World!</title>
+        <title>FINAL FANTASY XIV: STORMBLOOD</title>
+
+        <!-- APP StyleSheets -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="./public/assets/css/app.css">
     </head>
     <body>
 
-        <h1>Launcher</h1>
+        <main>
+            <header>
+                <div class="header-bg"></div>
+                <div class="header-content">
+                    <h1>Header Title Bar</h1>
+                </div>
+            </header>
+            <div class="login">
+                <form>
+                    <div>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Username">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Password">
+                    </div>
+                    <div>
+                        <label for="otp">One-Time Password</label>
+                        <input type="text" id="otp" placeholder="OTP">
+                    </div>
+                    <div>
+                        <label for="dx11">DX11 ?</label>
+                        <input type="checkbox" id="dx11">
+                    </div>
+                    <div>
+                        <button id="login" type="button">Login</button>
+                    </div>
+                </form>
+            </div>
+        </main>
 
-        <div>
-            <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Username">
-        </div>
-
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Password">
-        </div>
-
-        <div>
-            <label for="otp">One-Time Password</label>
-            <input type="text" id="otp" placeholder="OTP">
-        </div>
-
-        <div>
-            <label for="dx11">DX11 ?</label>
-            <input type="checkbox" id="dx11">
-        </div>
-
-        <div>
-            <button id="login">Login</button>
-        </div>
-
-        <script type="text/javascript">require('./public/assets/js/app.js');</script>
-
+    <!-- APP Javascript -->
+    <script type="text/javascript" src="./public/assets/js/app.js"></script>
     </body>
 </html>
