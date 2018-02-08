@@ -26,3 +26,16 @@ You can do modifications to the html, css or js and reload the app via: `CTRL+SH
 
 - A lot.
 - Add maintenance check (parse: http://frontier.ffxiv.com/worldStatus/gate_status.json)
+
+# Ideas
+
+- A much improved visual appearance over the current design
+- Automatic login
+- Multi-Account support
+- Maintenance and Patch checking
+- Show more useful information (Dev Blog posts, Dev Forum Posts, etc)
+- Show friends who re online
+- Global chat
+- *(Hook into XIVDB character data)*
+
+The idea would be to build a really good launcher
