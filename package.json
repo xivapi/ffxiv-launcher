@@ -1,5 +1,10 @@
 {
-  "name"    : "your-app",
-  "version" : "0.1.0",
-  "main"    : "main.js"
+  "name": "FFXIV-Launcher",
+  "version": "0.1.0",
+  "main": "main.js",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.17.1",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6"
+  }
 }

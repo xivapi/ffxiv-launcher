@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello World!</title>
+        <link rel="stylesheet" href="./public/assets/css/app.css">
+    </head>
+    <body>
 
-    <h1>FFXIV Launcher</h1>
+        <h1>Launcher</h1>
 
-    <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Username">
-    </div>
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Username">
+        </div>
 
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Password">
-    </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password">
+        </div>
 
-    <div>
-        <label for="otp">One-Time Password</label>
-        <input type="text" id="otp" placeholder="OTP">
-    </div>
+        <div>
+            <label for="otp">One-Time Password</label>
+            <input type="text" id="otp" placeholder="OTP">
+        </div>
 
-    <div>
-        <label for="dx11">DX11 ?</label>
-        <input type="checkbox" id="dx11">
-    </div>
+        <div>
+            <label for="dx11">DX11 ?</label>
+            <input type="checkbox" id="dx11">
+        </div>
 
-    <div>
-        <button id="login">Login</button>
-    </div>
+        <div>
+            <button id="login">Login</button>
+        </div>
 
-    <script type="text/javascript">
-      require('./FFXIV.js');
-    </script>
+        <script type="text/javascript">require('./public/assets/js/app.js');</script>
 
-  </body>
+    </body>
 </html>
