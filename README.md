@@ -38,4 +38,4 @@ You can do modifications to the html, css or js and reload the app via: `CTRL+SH
 - Global chat
 - *(Hook into XIVDB character data)*
 
-The idea would be to build a really good launcher with improvements over the launcher and provide more social features such as what Blizzard Battle.net offer (friends list, chatting, etc)
+The idea would be to build a really good launcher with improvements over the current one we have and provide more social features such as what Blizzard Battle.net offer (friends list, chatting, etc)
