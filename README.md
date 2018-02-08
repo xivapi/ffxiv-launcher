@@ -25,3 +25,4 @@ You can do modifications to the html, css or js and reload the app via: `CTRL+SH
 # Todo
 
 - A lot.
+- Add maintenance check (parse: http://frontier.ffxiv.com/worldStatus/gate_status.json)
