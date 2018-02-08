@@ -1,45 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html class="bg1">
     <head>
         <meta charset="UTF-8">
         <title>FINAL FANTASY XIV: STORMBLOOD</title>
 
         <!-- APP StyleSheets -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
         <link rel="stylesheet" href="./public/assets/css/app.css">
     </head>
     <body>
 
         <main>
+            <!-- Header -->
             <header>
                 <div class="header-bg"></div>
                 <div class="header-content">
-                    <h1>Header Title Bar</h1>
+                    <nav>
+                        <div class="left">
+
+                            <span class="logo"></span>
+                            <button type="button">Home</button>
+                            <button type="button">Friends</button>
+                            <button type="button">News</button>
+                            <button type="button">Mog Station</button>
+                            <button type="button">Support</button>
+
+                        </div>
+                        <div class="right">
+
+                            <div class="player-card">
+                                <div class="avatar">
+                                    <img src="https://img2.finalfantasyxiv.com/f/73cbde3df508fa147006c64859727aae_5047bc596a4bab2dc7f7c120bb22dec5fc0_96x96.jpg">
+                                </div>
+                                <div class="name">
+                                    Premium Virtue <small>PHOENIX</small>
+                                </div>
+                            </div>
+
+                            <div class="buttons">
+                                <button class="button-menu buttons-sprite-12"></button>
+                            </div>
+
+                        </div>
+                    </nav>
                 </div>
             </header>
+
+            <!-- Login form -->
             <div class="login">
                 <form>
+                    <h3>LOGIN</h3>
                     <div>
-                        <label for="username">Username</label>
                         <input type="text" id="username" placeholder="Username">
                     </div>
                     <div>
-                        <label for="password">Password</label>
                         <input type="password" id="password" placeholder="Password">
                     </div>
+                    <br>
                     <div>
                         <label for="otp">One-Time Password</label>
                         <input type="text" id="otp" placeholder="OTP">
                     </div>
-                    <div>
-                        <label for="dx11">DX11 ?</label>
-                        <input type="checkbox" id="dx11">
-                    </div>
-                    <div>
-                        <button id="login" type="button">Login</button>
+                    <div class="form-footer">
+                        <button id="GameLauncher.Login" type="button">Launch Game</button>
                     </div>
                 </form>
             </div>
+
+            <!-- Expansion Logo -->
+            <div class="expansion">
+                <img src="http://xivdb.com/launcher/images/logo_stormblood.png" height="142">
+            </div>
+
         </main>
 
     <!-- APP Javascript -->

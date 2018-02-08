@@ -10,4 +10,7 @@ Encore
     .enableSassLoader()
 ;
 
-module.exports = Encore.getWebpackConfig();
+// enaboe node environment
+let config = Encore.getWebpackConfig();
+config.target = 'node';
+module.exports = config;

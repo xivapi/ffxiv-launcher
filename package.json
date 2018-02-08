@@ -4,7 +4,13 @@
   "main": "main.js",
   "devDependencies": {
     "@symfony/webpack-encore": "^0.17.1",
+    "file": "^0.2.2",
     "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "system": "^2.0.1"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "sha1-file": "^1.0.0"
   }
 }

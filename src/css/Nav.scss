@@ -1,0 +1,94 @@
+nav {
+    display: flex;
+
+    .left {
+        flex: 0 1 65%;
+        display: flex;
+
+        > .logo {
+            background-image: url('http://xivdb.com/launcher/images/logo_small.png');
+            background-size: auto;
+            background-position: center center;
+            background-repeat: no-repeat;
+
+            flex: 0 1 120px;
+            width: 120px;
+            height: 120px;
+            display: block;
+        }
+
+        > button {
+            height: 60px;
+            margin: 30px 30px 0 0;
+            background-color: transparent;
+            border-radius: 3px;
+            transition: .2s;
+            padding: 0 20px;
+            color: $colorHighlight;
+            font-size: 20px;
+            font-weight: 300;
+            border: none;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(255,255,255,0.1);
+            }
+        }
+    }
+
+    .right {
+        flex: 0 1 35%;
+        text-align: right;
+        display: flex;
+
+        .player-card {
+            margin-top: 30px;
+            flex: 0 1 calc(100% - (64px + 30px));
+            display: flex;
+            text-align: left;
+
+            .avatar {
+                flex: 0 1 64px;
+
+                img {
+                    height: 64px;
+                    width: 64px;
+                    border-radius: 100px;
+                    box-shadow: 0 1px 3px #000;
+                }
+            }
+
+            .name {
+                flex: 0 1 calc(100% - 64px);
+                margin: 12px 0 0 20px;
+                font-size: 20px;
+
+                small {
+                    font-size: 13px;
+                    opacity: 0.6;
+                    display: block;
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        .buttons {
+            flex: 0 1 64px;
+            margin: 30px 15px 0 0;
+
+            .button-menu {
+                background-color: transparent;
+                border: none;
+                width: 64px;
+                height: 64px;
+                opacity: 0.7;
+                cursor: pointer;
+                transition: .2s;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

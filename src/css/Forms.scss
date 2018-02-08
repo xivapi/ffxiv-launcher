@@ -1,0 +1,63 @@
+form {
+    h3 {
+        margin: 0 0 15px 0;
+        color: $colorHighlight;
+        font-size: 14px;
+        font-weight: 300;
+        letter-spacing: 5px;
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        background-color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 3px;
+        width: 100%;
+        font-size: 16px;
+        box-shadow: 0 1px 3px #000;
+        text-shadow: none;
+    }
+
+    button {
+        background-color: $colorGreen;
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 3px;
+        font-size: 16px;
+        text-shadow: 0 1px 2px #000;
+        cursor: pointer;
+        box-shadow: 0 1px 3px #000;
+        transition: .2s;
+        font-weight: 400;
+
+        &:hover {
+            background-color: darken($colorGreen, 10%);
+        }
+    }
+
+    > div {
+        margin-bottom: 15px;
+    }
+
+
+    > .form-footer {
+        margin-top: 50px;
+    }
+}
+
+
+.buttons-sprite-12 {
+    background-image: url('http://xivdb.com/launcher/images/buttons.png');
+    background-repeat: no-repeat;
+    background-position: -710px center;
+}
