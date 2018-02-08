@@ -8,6 +8,11 @@ class GameLauncher
         document.getElementById('GameLauncher.Login').onclick = event => {
             this.requestLogin();
         };
+
+        document.getElementById('GameLauncher.Bypass').onclick = event => {
+            const sid = document.getElementById('bypass').value.trim();
+            this.launchGame(sid);
+        };
     }
 
     requestLogin()
@@ -16,6 +21,8 @@ class GameLauncher
             console.log('LOGIN COMPLETE');
             console.log('USER SID == '+ response.userRealSid);
             console.log('LIVE GAME VERSION == '+ response.latestGameVersion);
+
+            return;
 
             this.launchGame(response.userRealSid);
         });
