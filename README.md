@@ -34,7 +34,7 @@ You can do modifications to the html, css or js and reload the app via: `CTRL+SH
 - Multi-Account support
 - Maintenance and Patch checking
 - Show more useful information (Dev Blog posts, Dev Forum Posts, etc)
-- Show friends who re online
+- Show friends who are online
 - Global chat
 - *(Hook into XIVDB character data)*
 
