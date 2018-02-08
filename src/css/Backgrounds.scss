@@ -1,0 +1,41 @@
+$bg1: 'http://xivdb.com/launcher/images/bg1.jpg';
+$bg1Blur: 'http://xivdb.com/launcher/images/bg1_blur.jpg';
+
+$bg2: 'http://xivdb.com/launcher/images/bg2.jpg';
+$bg2Blur: 'http://xivdb.com/launcher/images/bg2_blur.jpg';
+
+$bg3: 'http://xivdb.com/launcher/images/bg3.jpg';
+$bg3Blur: 'http://xivdb.com/launcher/images/bg3_blur.jpg';
+
+$bg4: 'http://xivdb.com/launcher/images/bg4.jpg';
+$bg4Blur: 'http://xivdb.com/launcher/images/bg4_blur.jpg';
+
+.bg1, .bg2, .bg3, .bg4, .bg5 {
+    main, header .header-bg {
+        position: absolute;
+        top: 0; right: 0; left: 0; bottom: 0;
+    }
+
+    header .header-bg {
+        filter: brightness(1.5);
+        overflow: hidden;
+        z-index: 5;
+    }
+}
+
+.bg1 {
+    main { background: url($bg1) no-repeat center center fixed; background-size: cover; }
+    header .header-bg { background: url($bg1Blur) no-repeat center center fixed; background-size: cover; }
+}
+.bg2 {
+    main { background: url($bg2) no-repeat center center fixed; background-size: cover; }
+    header .header-bg { background: url($bg2Blur) no-repeat center center fixed; background-size: cover; }
+}
+.bg3 {
+    main { background: url($bg3) no-repeat center center fixed; background-size: cover; }
+    header .header-bg { background: url($bg3Blur) no-repeat center center fixed; background-size: cover; }
+}
+.bg4 {
+    main { background: url($bg4) no-repeat center center fixed; background-size: cover; }
+    header .header-bg { background: url($bg4Blur) no-repeat center center fixed; background-size: cover; }
+}
