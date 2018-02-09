@@ -23,8 +23,6 @@ class GameLauncher
 
     launchGame(userSid)
     {
-        console.log('Launching game with: '+ userSid);
-
         const gameFilename = Settings.se.GamePath + Settings.se.Dx11Path;
         const gameArguments = [
             'DEV.TestSID=' + userSid,
@@ -32,16 +30,13 @@ class GameLauncher
             'language=1'
         ];
 
-
-        const child = require('child_process').execFile;
-        child(gameFilename, gameArguments, function(err, data) {
+        require('child_process').execFile(gameFilename, gameArguments, function(err, data) {
             if(err){
                console.error(err);
                return;
             }
 
             console.log('running');
-
             // todo - do something here? Close the launcher? Hide in background?
         });
     }

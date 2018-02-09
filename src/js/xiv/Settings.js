@@ -1,6 +1,3 @@
-//const sha1File = require('sha1-file');
-//const filesystem = require('fs');
-
 /**
  * FFXIV Custom Launcher Settings
  */
@@ -10,9 +7,7 @@ module.exports = {
         GamePath: 'C:\\Program Files (x86)\\SquareEnix\\FINAL FANTASY XIV - A Realm Reborn',
         Dx9Path: '\\game\\ffxiv.exe',
         Dx11Path: '\\game\\ffxiv_dx11.exe',
-
         UserAgent: 'SQEXAuthor/2.0.0(Windows 6.2; ja-jp; 9e75ab3012)',
-
         LoginGameVersionRequest: {
             Host: 'patch-gamever.ffxiv.com',
             Port: 443,
@@ -20,14 +15,12 @@ module.exports = {
             ContentType: 'application/x-www-form-urlencoded',
             Referer: 'https://ffxiv-login.square-enix.com/oauth/ffxivarr/login/top?lng=en&rgn=3'
         },
-
         LoginOAuthFormRequest: {
             Host: 'ffxiv-login.square-enix.com',
             Port: 443,
             Path: '/oauth/ffxivarr/login/top?lng=en&rgn=3&isft=0&issteam=0',
             Method: 'POST',
         },
-
         LoginOAuthActionRequest: {
             Host: 'ffxiv-login.square-enix.com',
             Port: 443,
@@ -37,7 +30,6 @@ module.exports = {
             Referer: 'https://ffxiv-login.square-enix.com/oauth/ffxivarr/login/top?lng=en&rgn=3&isft=0&issteam=0'
         }
     },
-
     // the numbers of these are important
     languages: {
         0: 'Japanese',
@@ -45,7 +37,6 @@ module.exports = {
         2: 'German',
         3: 'French',
     },
-
     // the numbers of these are important
     expansions: {
         0: 'A Realm Reborn',

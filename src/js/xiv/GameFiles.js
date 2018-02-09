@@ -6,9 +6,18 @@ class GameFiles
 {
     hash()
     {
-        return "ffxivboot.exe/" + this.getSizeAndHash('/boot/ffxivboot.exe') +
-               ",ffxivlauncher.exe/"+ this.getSizeAndHash('/boot/ffxivlauncher.exe') +
-               ",ffxivupdater.exe/"+ this.getSizeAndHash('/boot/ffxivupdater.exe');
+        const files = [
+            'ffxivboot.exe',
+            'ffxivlauncher.exe',
+            'ffxivupdater.exe'
+        ];
+
+        for(let i in files) {
+            const sizeAndHash = this.getSizeAndHash(`/boot/${files[i]}`);
+            files[i] = `${files[i]}/${sizeAndHash}`;
+        }
+
+        return files.join(',');
     }
 
     version()
@@ -22,8 +31,8 @@ class GameFiles
     getSizeAndHash(filename)
     {
         filename = Settings.se.GamePath + filename;
-        let hash = sha1File(filename);
-        let length = filesystem.statSync(filename).size;
+        let hash = sha1File(filename),
+            length = filesystem.statSync(filename).size;
         return length + '/' + hash;
     }
 }

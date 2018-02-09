@@ -13,7 +13,6 @@ class Login
 
     go(callback)
     {
-        console.log('Attempting login ...');
         this.username = document.getElementById('username').value.trim();
         this.password = document.getElementById('password').value.trim();
         this.otp = document.getElementById('otp').value.trim();
@@ -24,17 +23,10 @@ class Login
 
     getRealUserSid(callback)
     {
-        console.log('get the REAL user sid');
-
         this.getSudoUserSid(SUDO_USER_ID => {
-            console.log('Build version + hash');
             let localGameVersion = GameFiles.version(),
                 localGameHash = GameFiles.hash();
 
-            console.log('localGameVersion == '+ localGameVersion);
-            console.log('localGameHash == '+ localGameHash);
-
-            console.log('request the real users id ');
             XIVRequest.getRealUserSid(
                 SUDO_USER_ID,
                 localGameVersion,
@@ -46,8 +38,6 @@ class Login
 
     getSudoUserSid(callback)
     {
-        console.log('get the SUDO user sid');
-
         // get temp id for form
         this.getTempUserSid(TEMP_USER_ID => {
             // login to get  fake user id
@@ -63,8 +53,6 @@ class Login
 
     getTempUserSid(callback)
     {
-        console.log('get the TEMP user sid');
-
         XIVRequest.getTempUserSid(callback);
     }
 }

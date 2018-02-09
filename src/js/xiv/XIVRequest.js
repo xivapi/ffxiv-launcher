@@ -1,15 +1,14 @@
 import Settings from './Settings';
-const https = require("https");
 
 // i don't know if this is needed, the patch-gamever server needs https ssl certificate verification
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 class Request
 {
     action(options, postdata, callback)
     {
         // request object
-        let req = https.request(options, function (response) {
+        let req = require("https").request(options, function (response) {
             let body = '';
             response.on('data', function (chunk) {
                 body += chunk;
@@ -21,16 +20,12 @@ class Request
                 })
             });
             response.on('error', function (error) {
-                console.log(
-                    'RESPONSE_ERROR', error
-                );
+                console.log('RESPONSE_ERROR', error);
             })
         });
 
         req.on('error', function (error) {
-            console.log(
-                'REQUEST_ERROR', error
-            );
+            console.log('REQUEST_ERROR', error);
         });
 
         // if any post data, attach it
@@ -61,16 +56,9 @@ class Request
         };
 
         this.action(options, false, response => {
-            let line = response.body.split("\n").filter(line => line.indexOf('_STORED_') > -1)[0];
-
-            if (!line) {
-                console.error('GET_TEMP_USER_SID_FAIL', 'No _STORED_ input on html form.');
-                return;
-            }
-
-            let id = line.replace('<input type="hidden" name="_STORED_" value="', '').replace('">', '').trim();
-            console.log('getTempUserSid == '+ id);
-            callback(id);
+            callback(
+                this.findDatInDom(response.body, '_STORED_')
+            );
         });
     }
 
@@ -79,8 +67,7 @@ class Request
      */
     getFakeUserSid(tempUserId, username, password, otp, callback)
     {
-        const QueryString = require('querystring');
-        const postdata = QueryString.stringify({
+        const postdata = require('querystring').stringify({
             '_STORED_': tempUserId,
             'sqexid': username,
             'password': password,
@@ -105,26 +92,20 @@ class Request
         };
 
         this.action(options, postdata, response => {
-            let line = response.body.split("\n").filter(line => line.indexOf('login=auth,ok,sid') > -1)[0];
-
-            if (!line) {
-                console.error('GET_FAKE_USER_SID_FAIL', 'No "login=auth,ok,sid" input on html form.');
-                return;
-            }
-
-            let id = line.replace('window.external.user("login=auth,ok,sid,', '').replace(',terms,1,region,2,etmadd,0,playable,1,ps3pkg,0,maxex,2,product,1");', '').trim();
-            console.log('getFakeUserSid == '+ id);
-            callback(id);
+            callback(
+                this.findDatInDom(response.body, 'login=auth,ok,sid')
+            );
         });
     }
 
+    /**
+     * Get the users real session id!
+     */
     getRealUserSid(tempUserId, localGameVersion, localGameHash, callback)
     {
-        let path = Settings.se.LoginGameVersionRequest.Path;
-        path = path.replace('{GAMEVER}', localGameVersion);
-        path = path.replace('{USER_SID}', tempUserId);
-
-        console.log('path = ' + path);
+        let path = Settings.se.LoginGameVersionRequest.Path
+            .replace('{GAMEVER}', localGameVersion)
+            .replace('{USER_SID}', tempUserId);
 
         // options
         let options = {
@@ -145,12 +126,28 @@ class Request
         };
 
         this.action(options, localGameHash, response => {
-            console.log(response);
              callback({
                 latestGameVersion: response.headers['x-latest-version'],
                 userRealSid: response.headers['x-patch-unique-id']
             });
         });
+    }
+
+    findDatInDom(body, data)
+    {
+        let line = body.split("\n").filter(line => line.indexOf(data) > -1)[0];
+
+        if (!line) {
+            return false;
+        }
+
+        return line
+            .replace('<input type="hidden" name="_STORED_" value="', '')
+            .replace('window.external.user("login=auth,ok,sid,', '')
+            .replace(',terms,1,region,2,etmadd,0,playable,1,ps3pkg,0,maxex,2,product,1");', '')
+            .replace(',terms,1,region,3,etmadd,0,playable,1,ps3pkg,0,maxex,2,product,1");', '')
+            .replace('">', '')
+            .trim();
     }
 }
 
