@@ -1,16 +1,31 @@
 {
   "name": "FFXIV-Launcher",
+  "description": "A custom FFXIV launcher",
+  "author": "Josh Freeman <josh@viion.co.uk>",
   "version": "0.1.0",
-  "main": "main.js",
+  "license": "MIT",
   "devDependencies": {
     "@symfony/webpack-encore": "^0.17.1",
-    "file": "^0.2.2",
+    "electron-builder": "^19.56.0",
+    "electron-packager": "^11.0.0",
     "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.6",
-    "system": "^2.0.1"
+    "sass-loader": "^6.0.6"
+  },
+  "main": "main.js",
+  "build": {
+    "appId": "your.id",
+    "win": {
+      "icon": "build/logo.ico"
+    },
+    "mac": {
+      "category": "your.app.category.type"
+    }
+  },
+  "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "dependencies": {
-    "fs": "0.0.1-security",
     "sha1-file": "^1.0.0"
   }
 }
