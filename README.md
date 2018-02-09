@@ -11,7 +11,7 @@ Needs a lot of love to make it look good and be useful
 
 - Download repo
 - cd `/repo/`
-- `npm install`
+- `yarn`
 - Start it: `electron .`
 
 Electron is basically a chrome browser without a head (no address bar, buttons etc). The project will open dev tools and load the basic FFXIV Login form.
@@ -22,12 +22,15 @@ You can do modifications to the html, css or js and reload the app via: `CTRL+SH
 
 (If you need SASS installed: `yarn add sass-loader node-sass --dev`)
 
-- ./node_modules/.bin/encore dev --watch
 - yarn run encore dev --watch
 
 # Preview
 
 ![preview](./github/preview.png)
+
+# Icons
+
+- https://feathericons.com/
 
 # Todo
 

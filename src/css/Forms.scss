@@ -15,6 +15,7 @@ form {
 
     input[type="text"],
     input[type="password"] {
+        outline: none;
         background-color: #fff;
         padding: 12px;
         border: none;
@@ -26,6 +27,7 @@ form {
     }
 
     button {
+        outline: none;
         background-color: $colorGreen;
         color: #fff;
         text-align: center;

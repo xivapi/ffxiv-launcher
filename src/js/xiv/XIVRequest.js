@@ -41,6 +41,8 @@ class Request
      */
     getTempUserSid(callback)
     {
+        console.log('XIVRequest --> getTempUserSid');
+
         // options
         let options = {
             host: Settings.se.LoginOAuthFormRequest.Host,
@@ -67,6 +69,8 @@ class Request
      */
     getFakeUserSid(tempUserId, username, password, otp, callback)
     {
+        console.log('XIVRequest --> getFakeUserSid');
+
         const postdata = require('querystring').stringify({
             '_STORED_': tempUserId,
             'sqexid': username,
@@ -103,6 +107,8 @@ class Request
      */
     getRealUserSid(tempUserId, localGameVersion, localGameHash, callback)
     {
+        console.log('XIVRequest --> getRealUserSid');
+
         let path = Settings.se.LoginGameVersionRequest.Path
             .replace('{GAMEVER}', localGameVersion)
             .replace('{USER_SID}', tempUserId);

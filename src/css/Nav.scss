@@ -30,6 +30,10 @@ nav {
             border: none;
             cursor: pointer;
 
+            img {
+                margin-top: 4px;
+            }
+
             &:hover {
                 background-color: rgba(255,255,255,0.1);
             }
@@ -40,54 +44,39 @@ nav {
         flex: 0 1 35%;
         text-align: right;
         display: flex;
+        padding: 30px 15px 0 0;
 
-        .player-card {
-            margin-top: 30px;
-            flex: 0 1 calc(100% - (64px + 30px));
-            display: flex;
-            text-align: left;
+        .name {
+            flex: 0 1 calc(100% - (64px  + 80px));
+            margin: 12px 20px 0 0;
+            font-size: 20px;
 
-            .avatar {
-                flex: 0 1 64px;
-
-                img {
-                    height: 64px;
-                    width: 64px;
-                    border-radius: 100px;
-                    box-shadow: 0 1px 3px #000;
-                }
-            }
-
-            .name {
-                flex: 0 1 calc(100% - 64px);
-                margin: 12px 0 0 20px;
-                font-size: 20px;
-
-                small {
-                    font-size: 13px;
-                    opacity: 0.6;
-                    display: block;
-                    margin-top: 5px;
-                }
+            small {
+                font-size: 13px;
+                opacity: 0.6;
+                display: block;
+                margin-top: 5px;
             }
         }
 
-        .buttons {
+        .avatar {
             flex: 0 1 64px;
-            margin: 30px 15px 0 0;
+            text-align: center;
 
-            .button-menu {
-                background-color: transparent;
-                border: none;
-                width: 64px;
+            img {
                 height: 64px;
-                opacity: 0.7;
-                cursor: pointer;
-                transition: .2s;
+                width: 64px;
+                border-radius: 100px;
+                box-shadow: 0 1px 3px #000;
+            }
+        }
 
-                &:hover {
-                    opacity: 1;
-                }
+        .user-menu {
+            flex: 0 1 80px;
+            text-align: center;
+
+            img {
+                margin-top: 18px;
             }
         }
     }

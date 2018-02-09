@@ -22,8 +22,6 @@ class GameLauncher
             console.log('USER SID == '+ response.userRealSid);
             console.log('LIVE GAME VERSION == '+ response.latestGameVersion);
 
-            return;
-
             this.launchGame(response.userRealSid);
         });
     }
