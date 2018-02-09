@@ -1,3 +1,12 @@
+//
+// THIS IS NOT USED ANYMORE
+// WILL BE DELETED
+//
+// IT IS THE ORIGINAL CONCEPT
+//
+
+
+
 // i don't know if this is needed, the patch-gamever server needs https ssl certificate verification
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
