@@ -14,6 +14,16 @@
             <!-- Header -->
             <header>
                 <div class="header-bg"></div>
+                <div class="header-bar">
+                    <div>
+                        FINAL FANTASY XIV LAUNCHER
+                    </div>
+                    <div>
+                        <button type="button" id="Launcher.Window.Min"><img src="https://xivdb.com/launcher/images/minus.svg"></button>
+                        <button type="button" id="Launcher.Window.Max"><img src="https://xivdb.com/launcher/images/maximize.svg"></button>
+                        <button type="button" id="Launcher.Window.Close"><img src="https://xivdb.com/launcher/images/power.svg"></button>
+                    </div>
+                </div>
                 <div class="header-content">
                     <nav>
                         <div class="left">
@@ -25,7 +35,7 @@
                             <button type="button">Mog Station</button>
                             <button type="button">Support</button>
                             <button type="button">
-                                <img src="https://xivdb.com/launcher/images/settings.svg" class="icon">
+                                <img src="https://xivdb.com/launcher/images/settings.svg">
                             </button>
 
                         </div>
@@ -38,7 +48,9 @@
                                 <img src="https://img2.finalfantasyxiv.com/f/73cbde3df508fa147006c64859727aae_5047bc596a4bab2dc7f7c120bb22dec5fc0_96x96.jpg">
                             </div>
                             <div class="user-menu">
-                                <img src="https://xivdb.com/launcher/images/more-vertical.svg" class="icon">
+                                <button type="button">
+                                    <img src="https://xivdb.com/launcher/images/more-vertical.svg">
+                                </button>
                             </div>
 
                         </div>
@@ -80,9 +92,21 @@
                 <img src="http://xivdb.com/launcher/images/logo_stormblood.png" height="142">
             </div>
 
+            <div class="debug">
+                <form>
+                    <select id="Window.BG">
+                        <option value="bg1">BG 1</option>
+                        <option value="bg2">BG 2</option>
+                        <option value="bg3">BG 3</option>
+                        <option value="bg4">BG 4</option>
+                    </select>
+                </form>
+            </div>
+
         </main>
 
     <!-- APP Javascript -->
     <script type="text/javascript" src="./public/assets/js/app.js"></script>
+    <script type="text/javascript" src="./public/assets/js/win.js"></script>
     </body>
 </html>

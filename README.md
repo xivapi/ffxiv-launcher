@@ -24,6 +24,10 @@ You can do modifications to the html, css or js and reload the app via: `CTRL+SH
 
 - yarn run encore dev --watch
 
+# Compile
+
+- `yarn dist`
+
 # Preview
 
 ![preview](./github/preview.png)

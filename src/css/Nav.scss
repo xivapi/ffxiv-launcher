@@ -47,7 +47,7 @@ nav {
         padding: 30px 15px 0 0;
 
         .name {
-            flex: 0 1 calc(100% - (64px  + 80px));
+            flex: 0 1 calc(100% - (64px  + 100px));
             margin: 12px 20px 0 0;
             font-size: 20px;
 
@@ -72,11 +72,35 @@ nav {
         }
 
         .user-menu {
-            flex: 0 1 80px;
+            flex: 0 1 100px;
             text-align: center;
 
-            img {
-                margin-top: 18px;
+            button {
+                background-color: rgba(0,0,0,0.3);
+                border-radius: 3px;
+                border: none;
+                width: 42px;
+                height: 42px;
+                text-align: center;
+                padding: 0;
+                position: relative;
+                margin: 10px 0 0 0;
+                cursor: pointer;
+                transition: .2s;
+
+                &:hover {
+                    background-color: rgba(0,0,0,0.6);
+                }
+
+                img {
+                    display: inline-block;
+                    margin: 0;
+                    position: absolute;
+                    top: 9px;
+                    left: 9px;
+                    width: 24px;
+                    height: 24px;
+                }
             }
         }
     }

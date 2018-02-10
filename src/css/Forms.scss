@@ -1,18 +1,14 @@
+a, button, input {
+    outline: none;
+    -webkit-app-region: no-drag;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
 form {
-    h3 {
-        margin: 0 0 15px 0;
-        color: $colorHighlight;
-        font-size: 14px;
-        font-weight: 300;
-        letter-spacing: 5px;
-        text-align: center;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 5px;
-    }
-
     input[type="text"],
     input[type="password"] {
         outline: none;
@@ -47,14 +43,26 @@ form {
         }
     }
 
-    > div {
-        margin-bottom: 15px;
+    select {
+        outline: none;
+        background-color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 3px;
+        width: 100%;
+        font-size: 16px;
+        box-shadow: 0 1px 3px #000;
+        text-shadow: none;
     }
+}
+
+> div {
+    margin-bottom: 15px;
+}
 
 
-    > .form-footer {
-        margin-top: 50px;
-    }
+> .form-footer {
+    margin-top: 50px;
 }
 
 
