@@ -1,10 +1,12 @@
-$colorHighlight: #fff1ab;
-$colorGreen: #458e0e;
-
+//
+// Core styles
+//
 @import 'Reset';
-@import 'Base';
-@import 'Backgrounds';
-@import 'Typography';
-@import 'Forms';
-@import 'Nav';
 @import 'UI';
+
+
+//
+// Custom Elements
+//
+@import 'AddCharacterForm';
+@import 'CharacterList';

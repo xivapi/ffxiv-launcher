@@ -3,7 +3,6 @@ let Encore = require('@symfony/webpack-encore');
 Encore
     .setOutputPath('public/assets/')
     .setPublicPath('/assets')
-    .cleanupOutputBeforeBuild()
     .enableSourceMaps(true)
     .addEntry('js/app', './src/js/app.js')
     .addStyleEntry('css/app', './src/css/app.scss')
@@ -12,5 +11,5 @@ Encore
 
 // enaboe node environment
 let config = Encore.getWebpackConfig();
-config.target = 'node';
+config.target = 'electron-renderer';
 module.exports = config;
