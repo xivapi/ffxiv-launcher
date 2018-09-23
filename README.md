@@ -31,7 +31,7 @@ Make sure your IDE is set to: EMCAScript 6
 
 (If you need SASS installed: `yarn add sass-loader node-sass --dev`)
 
-- yarn run encore dev --watch
+- `yarn run encore dev --watch`
 
 ## Compile
 

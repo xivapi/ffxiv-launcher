@@ -112,16 +112,12 @@ class GameLauncher
             'language=1'
         ];
 
-        require('child_process').execFile(gameFilename, gameArguments, function(err, data) {
-            if (err){
-                // This can error when you close the app, which isn't really that legitimate of an error...
-                //console.error(err);
-                return;
-            }
+        const options = {
+            detached: true,
+            stdio: 'ignore'
+        };
 
-            console.log('running');
-            // todo - do something here? Close the launcher? Hide in background?
-        });
+        require('child_process').spawn(gameFilename, gameArguments, options);
     }
 }
 
