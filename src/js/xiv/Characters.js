@@ -148,7 +148,7 @@ class Characters
 
             // row html
             row.innerHTML = `
-                <button id="Action.BootCharacter" data-id="${character.id}">
+                <button id="Action.BootCharacter" class="action-boot-character" data-id="${character.id}">
                     <img src="${character.avatar}">
                     <div>
                         <h4>${character.name ? character.name : 'NoName'}</h4>

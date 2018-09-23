@@ -46,10 +46,13 @@ class ButtonActions
             return;
         }
 
-        document.getElementById('Action.BootCharacter').onclick = event => {
-            const id = event.currentTarget.dataset.id;
-            Characters.bootCharacter(id);
-        };
+        document.body.onclick = function(e){
+            e = window.event? event.srcElement: e.target;
+            if (e.className && e.className.indexOf('action-boot-character') !== -1) {
+                const id = e.dataset.id;
+                Characters.bootCharacter(id);
+            }
+        }
     }
 }
 
