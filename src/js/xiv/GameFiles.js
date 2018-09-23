@@ -14,6 +14,11 @@ class GameFiles
 
         for(let i in files) {
             const sizeAndHash = this.getSizeAndHash(`/boot/${files[i]}`);
+
+            if (!sizeAndHash) {
+                return false;
+            }
+
             files[i] = `${files[i]}/${sizeAndHash}`;
         }
 
@@ -23,9 +28,7 @@ class GameFiles
     version()
     {
         let filename = Settings.se.GamePath + '/game/ffxivgame.ver';
-
         if (!fs.existsSync(filename)) {
-            alert("Your game path could not be found, please update it via the settings.");
             return false;
         }
 

@@ -34,7 +34,7 @@ class SettingsManager
 
         // load character list
         const localSettings = fs.readFileSync(`${this.directory}${this.filename}`, 'utf8');
-        if (localSettings.length > 3) {
+        if (localSettings !== null && localSettings.length > 3) {
             this.custom = JSON.parse(localSettings);
         }
 
@@ -45,12 +45,6 @@ class SettingsManager
         for (let option in this.custom) {
             let value = this.custom[option];
             document.getElementById(option).value = value;
-        }
-
-        // if some critical stuff is empty, load settings
-        if (Settings.se.GamePath.length < 5) {
-            document.getElementById('settings-form').classList.add('open');
-            alert('Please set your FFXIV game path');
         }
     }
 
