@@ -27,6 +27,10 @@ class Login
             let localGameVersion = GameFiles.version(),
                 localGameHash = GameFiles.hash();
 
+            if (!localGameVersion || !localGameHash) {
+                return;
+            }
+
             XIVRequest.getRealUserSid(
                 SUDO_USER_ID,
                 localGameVersion,

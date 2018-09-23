@@ -1,13 +1,18 @@
 import Settings from './Settings';
+import SettingsManager from './SettingsManager';
 import Login from './Login';
 import Servers from './Servers';
 import ButtonActions from './ButtonActions';
 import Characters from './Characters';
+const fs = require('fs');
 
 class GameLauncher
 {
     init()
     {
+        // load custom settings
+        SettingsManager.loadSettings();
+
         // load characters
         Characters.loadCharacters(true);
 
@@ -96,6 +101,11 @@ class GameLauncher
     launchGame(userSid)
     {
         const gameFilename = Settings.se.GamePath + Settings.se.Dx11Path;
+        if (!fs.existsSync(gameFilename)) {
+            alert("Your game path could not be found, please update it via the settings.");
+            return false;
+        }
+
         const gameArguments = [
             'DEV.TestSID=' + userSid,
             'DEV.MaxEntitledExpansionID=2',
@@ -116,5 +126,3 @@ class GameLauncher
 }
 
 export default new GameLauncher();
-
-

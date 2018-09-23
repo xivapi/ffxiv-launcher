@@ -17,9 +17,10 @@
                     FINAL FANTASY XIV: STORMBLOOD
                 </div>
                 <div>
-                    <button type="button" id="Launcher.Window.Min"><img src="https://xivapi.com/launcher/minus.svg"></button>
-                    <button type="button" id="Launcher.Window.Max"><img src="https://xivapi.com/launcher/maximize.svg"></button>
-                    <button type="button" id="Launcher.Window.Close"><img src="https://xivapi.com/launcher/power.svg"></button>
+                    <button type="button" id="Action.OpenLauncherSettingsWindow"><img src="https://xivapi.com/launcher/wrench-light.svg?v2"></button>
+                    <button type="button" id="Launcher.Window.Min"><img src="https://xivapi.com/launcher/minus.svg?v2"></button>
+                    <button type="button" id="Launcher.Window.Max"><img src="https://xivapi.com/launcher/maximize.svg?v2"></button>
+                    <button type="button" id="Launcher.Window.Close"><img src="https://xivapi.com/launcher/power.svg?v2"></button>
                 </div>
             </header>
 
@@ -91,6 +92,34 @@
                     </p>
 
                     <button type="button" id="Action.AddCharacter">Add Character</button>
+                </form>
+            </div>
+
+            <!-- Settings form -->
+            <div class="settings-form" id="settings-form">
+                <form>
+                    <h3>
+                        Launcher Settings
+                        <button type="button" class="ac-close" id="Action.CloseLauncherSettingsWindow">
+                            <img src="https://xivapi.com/launcher/times-regular.svg" height="24">
+                        </button>
+                    </h3>
+
+                    <br>
+
+                    <div class="ac-row-flex2">
+                        <div>
+                            <input type="text" id="gamePath" placeholder="FFXIV Game Path">
+                        </div>
+                        <div>
+                            <button type="button" id="Action.FindGamePath">Browse</button>
+                        </div>
+                    </div>
+                    <p>Browse and select the folder: <strong>FINAL FANTASY XIV - A Realm Reborn</strong></p>
+
+                    <br>
+
+                    <button type="button" id="Action.SaveSettings">Save Settings</button>
                 </form>
             </div>
 

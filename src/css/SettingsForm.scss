@@ -1,7 +1,7 @@
-.add-character-form {
+.settings-form {
     position: absolute;
     top: 60px;
-    right: 410px;
+    left: 10px;
     width: 500px;
     padding: 20px;
     background-color: #333;
@@ -38,6 +38,10 @@
 
     div {
         margin-bottom: 10px;
+    }
+
+    strong {
+        font-weight: 600;
     }
 
     .ac-close {
