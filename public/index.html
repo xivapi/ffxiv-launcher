@@ -8,134 +8,134 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
-    <body>
+<body>
 
-        <main>
-            <!-- Header -->
-            <header>
-                <div>
-                    FINAL FANTASY XIV: STORMBLOOD
-                </div>
-                <div>
-                    <button type="button" id="Action.OpenLauncherSettingsWindow"><img src="https://xivapi.com/launcher/wrench-light.svg?v2"></button>
-                    <button type="button" id="Launcher.Window.Min"><img src="https://xivapi.com/launcher/minus.svg?v2"></button>
-                    <button type="button" id="Launcher.Window.Max"><img src="https://xivapi.com/launcher/maximize.svg?v2"></button>
-                    <button type="button" id="Launcher.Window.Close"><img src="https://xivapi.com/launcher/power.svg?v2"></button>
-                </div>
-            </header>
+    <main>
+        <!-- Header -->
+        <header>
+            <div>
+                FINAL FANTASY XIV: STORMBLOOD
+            </div>
+            <div>
+                <button type="button" id="Action.OpenLauncherSettingsWindow"><img src="https://xivapi.com/launcher/wrench-light.svg?v2"></button>
+                <button type="button" id="Launcher.Window.Min"><img src="https://xivapi.com/launcher/minus.svg?v2"></button>
+                <button type="button" id="Launcher.Window.Max"><img src="https://xivapi.com/launcher/maximize.svg?v2"></button>
+                <button type="button" id="Launcher.Window.Close"><img src="https://xivapi.com/launcher/power.svg?v2"></button>
+            </div>
+        </header>
 
-            <!-- Character List -->
-            <div class="character-list" id="character-list">
-                <div class="cl-toggle">
-                    <button id="Action.ToggleCharacterWindowView">
-                        <img src="https://github.com/ArcaneDisgea/ffxiv-launcher/blob/master/src/images/bars-regular.svg" height="24">
+        <!-- Character List -->
+        <div class="character-list" id="character-list">
+            <div class="cl-toggle">
+                <button id="Action.ToggleCharacterWindowView">
+                    <img src="./assets/images/bars-regular.svg" height="24">
+                </button>
+            </div>
+            <div class="cl-add">
+                <button id="Action.OpenAddCharacterWindow">
+                    <img src="./assets/images/user-plus.svg" height="24"> Add Character
+                </button>
+            </div>
+            <span id="cl-list">
+
+            </span>
+            <div class="cl-notes">
+                <p>
+                    Username and passwords are not stored on this computer when you save a login, instead
+                    a character "Session ID" is saved. This ID is what the game uses to talk to the servers
+                    and is valid for 7 days.
+                </p>
+                <p>
+                    <strong>Never provide your Session ID to ANYONE</strong>. It cannot be forcefully expired
+                    and would allow anyone to login to your character, even if you have a Two-Factor token
+                    or if you change your password.
+                </p>
+            </div>
+        </div>
+
+        <!-- Add character form -->
+        <div class="add-character-form" id="add-character-form">
+            <form>
+                <h3>
+                    Add Character
+                    <button type="button" class="ac-close" id="Action.CloseAddCharacterWindow">
+                        <img src="https://xivapi.com/launcher/times-regular.svg" height="24">
                     </button>
+                </h3>
+
+                <br>
+
+                <div class="ac-row-flex2">
+                    <div>
+                        <input type="text" id="characterName" placeholder="Character Name">
+                    </div>
+                    <div>
+                        <select id="characterServer"></select>
+                    </div>
                 </div>
-                <div class="cl-add">
-                    <button id="Action.OpenAddCharacterWindow">
-                        <img src="https://github.com/ArcaneDisgea/ffxiv-launcher/blob/master/src/images/bars-regular.svg" height="24"> Add Character
+
+                <label for="otp">Square-Enix Account</label>
+                <div class="ac-row-flex2">
+                    <div>
+                        <input type="text" id="username" placeholder="Username">
+                    </div>
+                    <div>
+                        <input type="password" id="password" placeholder="Password">
+                    </div>
+                </div>
+
+                <label for="otp">One-Time Password</label>
+                <div class="ac-row-small">
+                    <input type="text" id="otp" placeholder="OTP">
+                </div>
+
+                <br>
+
+                <p>
+                    Your username and password is not saved, a login session is stored to allow
+                    you to login to your account for up to 7 days.
+                </p>
+
+                <button type="button" id="Action.AddCharacter">Add Character</button>
+            </form>
+        </div>
+
+        <!-- Settings form -->
+        <div class="settings-form" id="settings-form">
+            <form>
+                <h3>
+                    Launcher Settings
+                    <button type="button" class="ac-close" id="Action.CloseLauncherSettingsWindow">
+                        <img src="https://xivapi.com/launcher/times-regular.svg" height="24">
                     </button>
+                </h3>
+
+                <br>
+
+                <div class="ac-row-flex2">
+                    <div>
+                        <input type="text" id="gamePath" placeholder="FFXIV Game Path">
+                    </div>
+                    <div>
+                        <button type="button" id="Action.FindGamePath">Browse</button>
+                    </div>
                 </div>
-                <span id="cl-list">
+                <p>Browse and select the folder: <strong>FINAL FANTASY XIV - A Realm Reborn</strong></p>
 
-                </span>
-                <div class="cl-notes">
-                    <p>
-                        Username and passwords are not stored on this computer when you save a login, instead
-                        a character "Session ID" is saved. This ID is what the game uses to talk to the servers
-                        and is valid for 7 days.
-                    </p>
-                    <p>
-                        <strong>Never provide your Session ID to ANYONE</strong>. It cannot be forcefully expired
-                        and would allow anyone to login to your character, even if you have a Two-Factor token
-                        or if you change your password.
-                    </p>
-                </div>
-            </div>
+                <br>
 
-            <!-- Add character form -->
-            <div class="add-character-form" id="add-character-form">
-                <form>
-                    <h3>
-                        Add Character
-                        <button type="button" class="ac-close" id="Action.CloseAddCharacterWindow">
-                            <img src="https://xivapi.com/launcher/times-regular.svg" height="24">
-                        </button>
-                    </h3>
+                <button type="button" id="Action.SaveSettings">Save Settings</button>
+            </form>
+        </div>
 
-                    <br>
+        <!-- Expansion Logo -->
+        <div class="expansion">
+            <img src="https://xivapi.com/launcher/expansion.png" height="142">
+        </div>
 
-                    <div class="ac-row-flex2">
-                        <div>
-                            <input type="text" id="characterName" placeholder="Character Name">
-                        </div>
-                        <div>
-                            <select id="characterServer"></select>
-                        </div>
-                    </div>
-
-                    <label for="otp">Square-Enix Account</label>
-                    <div class="ac-row-flex2">
-                        <div>
-                            <input type="text" id="username" placeholder="Username">
-                        </div>
-                        <div>
-                            <input type="password" id="password" placeholder="Password">
-                        </div>
-                    </div>
-
-                    <label for="otp">One-Time Password</label>
-                    <div class="ac-row-small">
-                        <input type="text" id="otp" placeholder="OTP">
-                    </div>
-
-                    <br>
-
-                    <p>
-                        Your username and password is not saved, a login session is stored to allow
-                        you to login to your account for up to 7 days.
-                    </p>
-
-                    <button type="button" id="Action.AddCharacter">Add Character</button>
-                </form>
-            </div>
-
-            <!-- Settings form -->
-            <div class="settings-form" id="settings-form">
-                <form>
-                    <h3>
-                        Launcher Settings
-                        <button type="button" class="ac-close" id="Action.CloseLauncherSettingsWindow">
-                            <img src="https://xivapi.com/launcher/times-regular.svg" height="24">
-                        </button>
-                    </h3>
-
-                    <br>
-
-                    <div class="ac-row-flex2">
-                        <div>
-                            <input type="text" id="gamePath" placeholder="FFXIV Game Path">
-                        </div>
-                        <div>
-                            <button type="button" id="Action.FindGamePath">Browse</button>
-                        </div>
-                    </div>
-                    <p>Browse and select the folder: <strong>FINAL FANTASY XIV - A Realm Reborn</strong></p>
-
-                    <br>
-
-                    <button type="button" id="Action.SaveSettings">Save Settings</button>
-                </form>
-            </div>
-
-            <!-- Expansion Logo -->
-            <div class="expansion">
-                <img src="https://xivapi.com/launcher/expansion.png" height="142">
-            </div>
-
-        </main>
+    </main>
 
     <!-- APP Javascript -->
     <script type="text/javascript" src="assets/js/app.js"></script>
-    </body>
+</body>
 </html>
