@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="bg1">
-    <head>
-        <meta charset="UTF-8">
-        <title>FINAL FANTASY XIV: STORMBLOOD</title>
+<head>
+    <meta charset="UTF-8">
+    <title>FINAL FANTASY XIV: STORMBLOOD</title>
 
-        <!-- APP StyleSheets -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/app.css">
-    </head>
+    <!-- APP StyleSheets -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
     <body>
 
         <main>
@@ -25,10 +25,15 @@
             </header>
 
             <!-- Character List -->
-            <div class="character-list">
+            <div class="character-list" id="character-list">
+                <div class="cl-toggle">
+                    <button id="Action.ToggleCharacterWindowView">
+                        <img src="https://github.com/ArcaneDisgea/ffxiv-launcher/blob/master/src/images/bars-regular.svg" height="24">
+                    </button>
+                </div>
                 <div class="cl-add">
                     <button id="Action.OpenAddCharacterWindow">
-                        <img src="https://xivapi.com/launcher/angle-left-regular.svg" height="24"> Add Character
+                        <img src="https://github.com/ArcaneDisgea/ffxiv-launcher/blob/master/src/images/bars-regular.svg" height="24"> Add Character
                     </button>
                 </div>
                 <span id="cl-list">

@@ -13,6 +13,7 @@ class ButtonActions
         this.watchAddCharacterWindow();
         this.watchCharacterSelection();
         this.watchLauncherSettingsWindow();
+        this.watchToggleCharacterWindowView();
     }
 
     /**
@@ -89,6 +90,17 @@ class ButtonActions
                 Characters.bootCharacter(id);
             }
         }
+    }
+
+    /**
+     * Watch for toggling between portrait-only and full character view
+     */
+    watchToggleCharacterWindowView()
+    {
+        document.getElementById('Action.ToggleCharacterWindowView').onclick = event => {
+            const ui = document.getElementById('character-list');
+            ui.classList.toggle('icons-only');
+        };
     }
 }
 
