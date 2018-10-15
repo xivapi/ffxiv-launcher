@@ -8,8 +8,8 @@
     border-radius: 3px;
     box-shadow: 0 0 3px #000;
     z-index: 50;
-
     display: none;
+
     &.open {
         display: block;
     }
@@ -26,10 +26,8 @@
     p {
         font-size: 13px;
         color: #aaa;
-
         margin-bottom: 20px;
         line-height: 20px;
-
     }
 
     h3 {
