@@ -1,11 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\public",
+    "\\public\\assets",
     "\\src",
     "\\src\\css",
     "\\src\\js",
     "\\src\\js\\xiv"
   ],
-  "SelectedNode": "\\src\\js\\xiv\\Settings.js",
+  "SelectedNode": "\\src\\css\\CharacterList.scss",
   "PreviewInSolutionExplorer": false
 }
