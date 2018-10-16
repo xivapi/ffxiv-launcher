@@ -14,6 +14,7 @@ class ButtonActions
         this.watchCharacterSelection();
         this.watchLauncherSettingsWindow();
         this.watchToggleCharacterWindowView();
+        this.watchToggleNewsView();
     }
 
     /**
@@ -100,6 +101,17 @@ class ButtonActions
         document.getElementById('Action.ToggleCharacterWindowView').onclick = event => {
             const ui = document.getElementById('character-list');
             ui.classList.toggle('icons-only');
+        };
+    }
+
+    /**
+     * Watch for toggling News on and off
+     */
+    watchToggleNewsView()
+    {
+        document.getElementById('Action.ToggleNewsView').onclick = event => {
+            const ui = document.getElementById('news');
+            ui.classList.toggle('news-hidden');
         };
     }
 }
