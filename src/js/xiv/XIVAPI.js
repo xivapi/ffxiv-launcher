@@ -21,6 +21,11 @@ class XIVAPI
         this.request('/character/search', params, callback);
     }
 
+    getLodestoneData(callback)
+    {
+        this.request('/lodestone', [], callback);
+    }
+
     /**
      * Send request to XIVAPI
      */
