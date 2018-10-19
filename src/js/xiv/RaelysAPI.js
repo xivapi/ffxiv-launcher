@@ -17,7 +17,6 @@ class RaelysAPI
     request(url, params, callback)
     {
         url = `${Settings.custom.RaelysAPIEndpoint}${url}`;
-        url = `${url}?${params.join('&')}`;
 
         console.log(url);
 
@@ -29,7 +28,7 @@ class RaelysAPI
                     JSON.parse(xhr.responseText)
                 );
             } else if (xhr.readyState === 4) {
-                console.error('RaePI ERROR', xhr.status);
+                console.error('RaelysAPI ERROR', xhr.status);
             }
         };
 
