@@ -1,5 +1,6 @@
 import RaelysAPI from "./RaelysAPI";
-import XIVAPI from "./XIVAPI";
+const { shell } = require('electron')
+
 /**
  * Show lodestone news
  */
