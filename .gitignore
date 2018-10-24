@@ -4,3 +4,4 @@ dist
 /data/*
 !/data/.gitkeep
 yarn-error.log
+.vs
