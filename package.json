@@ -9,7 +9,7 @@
     "electron": "^3.0.0",
     "electron-builder": "^19.56.0",
     "electron-packager": "^11.0.0",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.9.4",
     "sass-loader": "^7.1.0"
   },
   "main": "main.js",

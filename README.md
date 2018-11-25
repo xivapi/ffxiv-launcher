@@ -1,4 +1,4 @@
-# FINAL FANTASY XIV: STORM BLOOD - CUSTOM LAUNCHER
+# FINAL FANTASY XIV: STORMBLOOD - CUSTOM LAUNCHER
 
 A custom built launcher for FFXIV written in Javascript on Nodejs via Electron. Needs a lot of love to make it look good and be useful
 
