@@ -40,7 +40,9 @@ class SettingsManager
 
         // special ones that are required for the launcher
         Settings.se.GamePath = this.custom.gamePath;
-
+        Settings.language = this.custom.language;
+        Settings.expansion = this.custom.expansion;
+        
         // populate forms
         for (let option in this.custom) {
             let value = this.custom[option];
