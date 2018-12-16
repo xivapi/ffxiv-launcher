@@ -2,6 +2,24 @@
  * FFXIV Custom Launcher Settings
  */
 module.exports = {
+    custom: {
+        // XIVAPI
+        xivapiEndpoint: "https://xivapi.com",
+        xivapiKey: "9ba8086eb2f048e780d33f1b",
+        xivapiPollDelay: 60000,
+        RaelysAPIProtocol: "http://",
+        RaelysAPIURL: "lodestone.raelys.com",
+        RaelysAPIEndpoint: "http://na.lodestone.raelys.com",
+        RaelysAPILanguages: {
+            "na": 'North America',
+            "de": 'Germany',
+            "eu": 'Europe',
+            "fr": 'France',
+            "jp": 'Japan',
+        },
+        // Characters
+        checkCharacterExpiryDelay: 60000,
+    },
     // Square-Enix specific options
     se: {
         GamePath: 'C:\\Program Files (x86)\\SquareEnix\\FINAL FANTASY XIV - A Realm Reborn',

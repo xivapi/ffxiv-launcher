@@ -1,11 +1,9 @@
 // Initialize Game Launcher logic
 import GameLauncher from './xiv/GameLauncher';
+import GameLauncherWindow from './xiv/GameLauncherWindow';
+import Lodestone from './xiv/Lodestone';
+
+
 GameLauncher.init();
-
-//
-// Misc crap
-//
-
-document.getElementById('Window.BG').addEventListener('change', event => {
-    document.getElementsByTagName('html')[0].className = document.getElementById('Window.BG').value;
-});
+GameLauncherWindow.init();
+Lodestone.init();

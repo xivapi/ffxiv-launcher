@@ -1,13 +1,20 @@
-# ffxiv-launcher
+# FINAL FANTASY XIV: STORMBLOOD - CUSTOM LAUNCHER
 
-A custom built launcher for FFXIV written in Javascript on Nodejs via Electron.
+A custom built launcher for FFXIV written in Javascript on Nodejs via Electron. Needs a lot of love to make it look good and be useful
 
-This is a Javascript implementation of: 
-https://github.com/goaaats/FFXIVQuickLauncher
+> This is a Javascript implementation of: https://github.com/goaaats/FFXIVQuickLauncher
 
-Needs a lot of love to make it look good and be useful
 
-# Getting started
+
+## Source files
+
+- Styles: `src/css/**.scss`
+- Javascript: `src/js/**.js`
+- HTML: `public/index.html`
+
+For images, you must host them somewhere, eg Github, Imgur or I can put them on XIVAPI.com
+
+## Getting started
 
 - Download repo
 - cd `/repo/`
@@ -18,45 +25,38 @@ Electron is basically a chrome browser without a head (no address bar, buttons e
 
 You can do modifications to the html, css or js and reload the app via: `CTRL+SHIFT+R`.
 
-# Compiling the JS and SCSS
+## Compiling the JS and SCSS
+
+Make sure your IDE is set to: EMCAScript 6
 
 (If you need SASS installed: `yarn add sass-loader node-sass --dev`)
 
-- yarn run encore dev --watch
+- `yarn run encore dev --watch`
 
-# Compile
+## Compile
 
 - `yarn dist`
+
+This will build an installation to: `/dist/FFXIV-Launcher Setup <version>.exe` which you can share and install.
+
+## Dev Tools
+
+Open with `CTRL+Shift+I`
 
 # Preview
 
 ![preview](./github/preview.png)
-
-# Icons
-
-- https://feathericons.com/
 
 # Todo
 
 - A lot.
 - Add maintenance check (parse: http://frontier.ffxiv.com/worldStatus/gate_status.json)
 
-# Ideas
-
-- A much improved visual appearance over the current design
-- Automatic login
-- Multi-Account support
-- Maintenance and Patch checking
-- Show more useful information (Dev Blog posts, Dev Forum Posts, etc)
-- Show friends who are online
-- Global chat
-- *(Hook into XIVDB character data)*
-
-The idea would be to build a really good launcher with improvements over the current one we have and provide more social features such as what Blizzard Battle.net offer (friends list, chatting, etc)
+---
 
 # Updating the User-Agent
 
-Whenever a patch is release the user-agent for the client will need updating. The latest ID can be obtained by using wireshark.
+The latest ID can be obtained by using wireshark. Doesn't seem to matter much?
 
 - Download: [WireShark](https://www.wireshark.org/)
 

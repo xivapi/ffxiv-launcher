@@ -24,8 +24,17 @@ class Login
     getRealUserSid(callback)
     {
         this.getSudoUserSid(SUDO_USER_ID => {
-            let localGameVersion = GameFiles.version(),
-                localGameHash = GameFiles.hash();
+            let localGameVersion = GameFiles.version();
+            if (!localGameVersion) {
+                const ui = document.getElementById('Action.AddCharacter');
+                ui.disabled = false;
+                ui.innerHTML = 'Add Character';
+
+                alert("Your game version could not be found, please check the game path via the settings.");
+                return;
+            }
+
+            let localGameHash = GameFiles.hash();
 
             XIVRequest.getRealUserSid(
                 SUDO_USER_ID,

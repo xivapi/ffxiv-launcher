@@ -1,10 +1,16 @@
-$colorHighlight: #fff1ab;
-$colorGreen: #458e0e;
-
+//
+// Core styles
+//
 @import 'Reset';
-@import 'Base';
-@import 'Backgrounds';
-@import 'Typography';
-@import 'Forms';
-@import 'Nav';
 @import 'UI';
+@import '_mq.scss';
+
+$mq-breakpoints: ( mobile: 320px, tablet: 740px, desktop: 980px, wide: 1300px );
+
+//
+// Custom Elements
+//
+@import 'AddCharacterForm';
+@import 'CharacterList';
+@import 'SettingsForm';
+@import 'LodestoneNews';
