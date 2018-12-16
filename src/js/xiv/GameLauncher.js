@@ -106,10 +106,20 @@ class GameLauncher
             return false;
         }
 
+        let expansion = 2
+        if(Settings.expansion in Settings.expansions){
+            expansion = Settings.expansion
+        }
+
+        let language = 1
+        if(Settings.language in Settings.languages){
+            language = Settings.language
+        }
+
         const gameArguments = [
             'DEV.TestSID=' + userSid,
-            'DEV.MaxEntitledExpansionID=2',
-            'language=1'
+            'DEV.MaxEntitledExpansionID=' + expansion,
+            'language=' + language
         ];
 
         const options = {

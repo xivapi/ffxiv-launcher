@@ -36,10 +36,6 @@
         margin-bottom: 15px;
     }
 
-    div {
-        margin-bottom: 10px;
-    }
-
     strong {
         font-weight: 600;
     }
@@ -62,9 +58,14 @@
 
             &:first-of-type {
                 margin-right: 5px;
+                > input {
+                    width: 160%;
+                }
             }
 
             &:last-of-type {
+                display: flex;
+                justify-content: flex-end;
                 margin-left: 5px;
             }
         }

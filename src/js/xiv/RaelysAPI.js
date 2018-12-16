@@ -16,6 +16,10 @@ class RaelysAPI
      */
     request(url, params, callback)
     {
+        if (Settings.RaelysAPILanguage in Settings.custom.RaelysAPILanguages){
+            Settings.custom.RaelysAPIEndpoint = Settings.custom.RaelysAPIProtocol + Settings.RaelysAPILanguage + "." + Settings.custom.RaelysAPIURL;
+        }
+
         url = `${Settings.custom.RaelysAPIEndpoint}${url}`;
 
         console.log(url);

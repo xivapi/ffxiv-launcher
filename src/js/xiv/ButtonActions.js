@@ -54,8 +54,14 @@ class ButtonActions
 
         document.getElementById('Action.SaveSettings').onclick = event => {
             const gamePath = document.getElementById('gamePath').value.trim();
+            const expansion = document.getElementById('expansion').value.trim();
+            const language = document.getElementById('language').value.trim();
+            const raelyslanguage = document.getElementById('raelysLanguage').value.trim();
             SettingsManager.saveSettings({
-                gamePath: gamePath
+                gamePath: gamePath,
+                expansion: expansion,
+                language: language,
+                raelysLanguage: raelyslanguage
             });
 
             document.getElementById('settings-form').classList.remove('open');

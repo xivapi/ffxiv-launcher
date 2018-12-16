@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>FINAL FANTASY XIV: STORMBLOOD</title>
-
     <!-- APP StyleSheets -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
-
     <main>
         <!-- Header -->
         <header>
@@ -23,7 +21,6 @@
                 <button type="button" id="Launcher.Window.Close"><img src="https://xivapi.com/launcher/power.svg?v2"></button>
             </div>
         </header>
-
         <!-- Character List -->
         <div class="character-list" id="character-list">
             <div class="cl-toggle">
@@ -42,7 +39,6 @@
                 </button>
             </div>
             <span id="cl-list">
-
             </span>
             <div class="cl-notes">
                 <p>
@@ -57,7 +53,6 @@
                 </p>
             </div>
         </div>
-
         <!-- Add character form -->
         <div class="add-character-form" id="add-character-form">
             <form>
@@ -67,9 +62,7 @@
                         <img src="https://xivapi.com/launcher/times-regular.svg" height="24">
                     </button>
                 </h3>
-
                 <br>
-
                 <div class="ac-row-flex2">
                     <div>
                         <input type="text" id="characterName" placeholder="Character Name">
@@ -78,7 +71,6 @@
                         <select id="characterServer"></select>
                     </div>
                 </div>
-
                 <label for="otp">Square-Enix Account</label>
                 <div class="ac-row-flex2">
                     <div>
@@ -88,23 +80,18 @@
                         <input type="password" id="password" placeholder="Password">
                     </div>
                 </div>
-
                 <label for="otp">One-Time Password</label>
                 <div class="ac-row-small">
                     <input type="text" id="otp" placeholder="OTP">
                 </div>
-
                 <br>
-
                 <p>
                     Your username and password is not saved, a login session is stored to allow
                     you to login to your account for up to 7 days.
                 </p>
-
                 <button type="button" id="Action.AddCharacter">Add Character</button>
             </form>
         </div>
-
         <!-- Settings form -->
         <div class="settings-form" id="settings-form">
             <form>
@@ -114,9 +101,7 @@
                         <img src="https://xivapi.com/launcher/times-regular.svg" height="24">
                     </button>
                 </h3>
-
-                <br>
-
+                <label>Game Path</label>
                 <div class="ac-row-flex2">
                     <div>
                         <input type="text" id="gamePath" placeholder="FFXIV Game Path">
@@ -126,30 +111,50 @@
                     </div>
                 </div>
                 <p>Browse and select the folder: <strong>FINAL FANTASY XIV - A Realm Reborn</strong></p>
-
+                <label for="expansion">Expansion</label>
+                <div>
+                    <select id="expansion">
+                        <option value="2">Stormblood</option>
+                        <option value="1">Heavensward</option>
+                        <option value="0">A Real Reborn</option>
+                    </select>
+                </div>
+                <label for="language">Game Language</label>
+                <div>
+                    <select id="language">
+                        <option value="1">English</option>
+                        <option value="2">German</option>
+                        <option value="3">French</option>
+                        <option value="0">Japanese</option>
+                    </select>
+                </div>
+                <label for="raelysLanguage">News Language</label>
+                <div>
+                    <select id="raelysLanguage">
+                        <option value="na">North America</option>
+                        <option value="de">German</option>
+                        <option value="fr">French</option>
+                        <option value="eu">Europe</option>
+                        <option value="jp">Japanese</option>
+                    </select>
+                </div>
                 <br>
-
                 <button type="button" id="Action.SaveSettings">Save Settings</button>
             </form>
         </div>
-
         <!-- Lodestone News -->
         <div class="news news-hidden" id="news">
             <h1 class="news-header">
                 Lodestone News
             </h1>
             <div class="lodestone" id="lodestone">
-
             </div>
         </div>
-
         <!-- Expansion Logo -->
         <div class="expansion">
             <img src="https://xivapi.com/launcher/expansion.png" height="142">
         </div>
-
     </main>
-
     <!-- APP Javascript -->
     <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
