@@ -60,5 +60,12 @@ module.exports = {
         0: 'A Realm Reborn',
         1: 'Heavensward',
         2: 'Stormblood'
-    }
+    },
+    // the numbers of these are important
+    regions: {
+        0: 'No Message', //Data Center not working
+        1: 'Japanese Message',
+        2: 'ESRB Rating Message',
+        3: 'No Message' //Data Center working
+    },
 };

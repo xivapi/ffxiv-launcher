@@ -56,11 +56,13 @@ class ButtonActions
             const gamePath = document.getElementById('gamePath').value.trim();
             const expansion = document.getElementById('expansion').value.trim();
             const language = document.getElementById('language').value.trim();
+            const region = document.getElementById('region').value.trim();
             const raelyslanguage = document.getElementById('raelysLanguage').value.trim();
             SettingsManager.saveSettings({
                 gamePath: gamePath,
                 expansion: expansion,
                 language: language,
+                region: region,
                 raelysLanguage: raelyslanguage
             });
 
