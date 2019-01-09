@@ -25,7 +25,7 @@ module.exports = {
         GamePath: 'C:\\Program Files (x86)\\SquareEnix\\FINAL FANTASY XIV - A Realm Reborn',
         Dx9Path: '\\game\\ffxiv.exe',
         Dx11Path: '\\game\\ffxiv_dx11.exe',
-        UserAgent: 'SQEXAuthor/2.0.0(Windows 6.2; ja-jp; 9e75ab3012)',
+        UserAgent: 'SQEXAuthor/2.0.0(Windows 6.2; ja-jp; 45d19cc985)',
         LoginGameVersionRequest: {
             Host: 'patch-gamever.ffxiv.com',
             Port: 443,
@@ -60,5 +60,12 @@ module.exports = {
         0: 'A Realm Reborn',
         1: 'Heavensward',
         2: 'Stormblood'
-    }
+    },
+    // the numbers of these are important
+    regions: {
+        0: 'No Message', //Data Center not working
+        1: 'Japanese Message',
+        2: 'ESRB Rating Message',
+        3: 'No Message' //Data Center working
+    },
 };

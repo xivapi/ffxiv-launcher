@@ -116,10 +116,16 @@ class GameLauncher
             language = Settings.language
         }
 
+        let region = 3
+        if(Settings.region in Settings.regions){
+            region = Settings.region
+        }
+
         const gameArguments = [
             'DEV.TestSID=' + userSid,
             'DEV.MaxEntitledExpansionID=' + expansion,
-            'language=' + language
+            'language=' + language,
+            'region=' + region
         ];
 
         const options = {
