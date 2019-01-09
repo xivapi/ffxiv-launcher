@@ -74,4 +74,4 @@ A valid user agent looks like this:
 
 - `SQEXAuthor/2.0.0(Windows 6.2; ja-jp; 9e75ab3012)`
 
-The important part is the end ID `9e75ab3012`, enter this in the `src/Settings.js` file, replacing what is currently there.
+The important part is the end ID `9e75ab3012`, enter this in the `src/js/xiv/Settings.js` file, replacing what is currently there.

@@ -8,8 +8,11 @@ class GameFiles
     {
         const files = [
             'ffxivboot.exe',
+            'ffxivboot64.exe',
             'ffxivlauncher.exe',
-            'ffxivupdater.exe'
+            'ffxivlauncher64.exe',
+            'ffxivupdater.exe',
+            'ffxivupdater64.exe'
         ];
 
         for(let i in files) {

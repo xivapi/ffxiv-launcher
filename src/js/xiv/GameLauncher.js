@@ -119,7 +119,8 @@ class GameLauncher
         const gameArguments = [
             'DEV.TestSID=' + userSid,
             'DEV.MaxEntitledExpansionID=' + expansion,
-            'language=' + language
+            'language=' + language,
+            'region=' + '1'
         ];
 
         const options = {

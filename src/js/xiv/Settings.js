@@ -25,7 +25,7 @@ module.exports = {
         GamePath: 'C:\\Program Files (x86)\\SquareEnix\\FINAL FANTASY XIV - A Realm Reborn',
         Dx9Path: '\\game\\ffxiv.exe',
         Dx11Path: '\\game\\ffxiv_dx11.exe',
-        UserAgent: 'SQEXAuthor/2.0.0(Windows 6.2; ja-jp; 9e75ab3012)',
+        UserAgent: 'SQEXAuthor/2.0.0(Windows 6.2; ja-jp; 45d19cc985)',
         LoginGameVersionRequest: {
             Host: 'patch-gamever.ffxiv.com',
             Port: 443,
