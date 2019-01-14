@@ -5,10 +5,10 @@
   "version": "0.2.6",
   "license": "MIT",
   "devDependencies": {
-    "@symfony/webpack-encore": "^0.17.1",
-    "electron": "^3.0.0",
-    "electron-builder": "^19.56.0",
-    "electron-packager": "^11.0.0",
+    "@symfony/webpack-encore": "^0.22.4",
+    "electron": "^4.0.1",
+    "electron-builder": "^20.38.4",
+    "electron-packager": "^13.0.1",
     "node-sass": "^4.9.4",
     "sass-loader": "^7.1.0"
   },
