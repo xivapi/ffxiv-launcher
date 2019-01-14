@@ -26,6 +26,8 @@ module.exports = {
         Dx9Path: '\\game\\ffxiv.exe',
         Dx11Path: '\\game\\ffxiv_dx11.exe',
         UserAgent: 'SQEXAuthor/2.0.0(Windows 6.2; ja-jp; 45d19cc985)',
+        UseSqPack: 1,
+        DataPathType: 1,
         LoginGameVersionRequest: {
             Host: 'patch-gamever.ffxiv.com',
             Port: 443,

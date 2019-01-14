@@ -4,6 +4,7 @@ import Login from './Login';
 import Servers from './Servers';
 import ButtonActions from './ButtonActions';
 import Characters from './Characters';
+import GameFiles from './GameFiles';
 const fs = require('fs');
 
 class GameLauncher
@@ -106,26 +107,29 @@ class GameLauncher
             return false;
         }
 
-        let expansion = 2
-        if(Settings.expansion in Settings.expansions){
+        let expansion = 2;
+        if (Settings.expansion in Settings.expansions){
             expansion = Settings.expansion
         }
 
-        let language = 1
-        if(Settings.language in Settings.languages){
+        let language = 1;
+        if (Settings.language in Settings.languages){
             language = Settings.language
         }
 
-        let region = 3
-        if(Settings.region in Settings.regions){
+        let region = 3;
+        if (Settings.region in Settings.regions){
             region = Settings.region
         }
 
         const gameArguments = [
+            'DEV.UseSqPack=' + Settings.se.UseSqPack,
+            'DEV.DataPathType=' + Settings.se.DataPathType,
             'DEV.TestSID=' + userSid,
             'DEV.MaxEntitledExpansionID=' + expansion,
             'language=' + language,
-            'region=' + region
+            'SYS.Region=' + region,
+            'ver=' + GameFiles.version()
         ];
 
         const options = {
