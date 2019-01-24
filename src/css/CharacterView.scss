@@ -1,0 +1,123 @@
+//
+// View when you click a character
+//
+.character-view {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 50px;
+    width: 500px;
+    z-index: 500;
+    display: none;
+    border-radius: 8px;
+    box-shadow: 0 1px 20px #000;
+    border: solid 1px #000;
+    background-color: rgba(25, 25, 25, 0.85);
+
+    &.open {
+        display: block;;
+    }
+
+    > div:nth-of-type(1) {
+        text-align: center;
+    }
+
+    > div:nth-of-type(2) {
+        text-align: center;
+    }
+
+    > div:nth-of-type(3) {
+        text-align: center;
+    }
+
+    .avatar {
+        height: 96px;
+        border-radius: 96px;
+        box-shadow: 0 1px 8px #000;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 26px;
+        font-weight: 300;
+        margin-bottom: 5px;
+    }
+
+    small {
+        text-transform: uppercase;
+        color: #666;
+        font-size: 14px;
+    }
+
+    hr {
+        border: none;
+        height: 2px;
+        background-color: #333;
+        margin: 40px 20px;
+    }
+
+    .btn-start-game {
+        background-color: #009e2a;
+        color: #fff;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 20px;
+        font-size: 19px;
+        font-weight: 400;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 1px 5px #000;
+        cursor: pointer;
+        transition: 100ms;
+
+        &:hover {
+            background-color: #008727;
+        }
+    }
+
+    .btn-delete-character {
+        color: #e53939;
+        background-color: transparent;
+        border: none;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 14px;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .otp2 {
+        line-height: 50px;
+        padding: 0 20px;
+        margin-bottom: 15px;
+        background-color: #333;
+        border: solid 1px #000;
+        font-size: 23px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #aaa;
+        width: 165px;
+        text-align: center;
+        border-radius: 8px;
+    }
+}
+.character-fade {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 495;
+    background-color: rgba(0,0,0,0.75);
+    display: none;
+
+    &.open {
+        display: block;
+    }
+}

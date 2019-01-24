@@ -21,10 +21,10 @@ class XIVAPI
         this.request('/character/search', params, callback);
     }
 
-    //getLodestoneData(callback)
-    //{
-    //    this.request('/lodestone', [], callback);
-    //}
+    getLodestoneData(callback)
+    {
+        this.request('/lodestone', [], callback);
+    }
 
     /**
      * Send request to XIVAPI
@@ -34,8 +34,6 @@ class XIVAPI
         url = `${Settings.custom.xivapiEndpoint}${url}`;
         params.push(`key=${Settings.custom.xivapiKey}`);
         url = `${url}?${params.join('&')}`;
-
-        console.log(url);
 
         let xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);

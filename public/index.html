@@ -15,54 +15,45 @@
                 FINAL FANTASY XIV: STORMBLOOD
             </div>
             <div>
-                <button type="button" id="Action.OpenLauncherSettingsWindow"><img src="https://xivapi.com/launcher/wrench-light.svg?v2"></button>
+                <button type="button" id="OpenLauncherSettingsWindow"><img src="https://xivapi.com/launcher/wrench-light.svg?v2"></button>
                 <button type="button" id="Launcher.Window.Min"><img src="https://xivapi.com/launcher/minus.svg?v2"></button>
                 <button type="button" id="Launcher.Window.Max"><img src="https://xivapi.com/launcher/maximize.svg?v2"></button>
                 <button type="button" id="Launcher.Window.Close"><img src="https://xivapi.com/launcher/power.svg?v2"></button>
             </div>
         </header>
+
+        <!-- Nav -->
+        <nav>
+            <button id="ShowLodestoneNews"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M421 197l-6-1q-55-10-99-31-58-26-75-62-5-10-13-29-9-21-14-29-8-13-19-19-7-5-17-7l-5-1q-2 0-2 1-26-1-52.5 25.5t-48 73-32 103.5T31 329.5 49 415t39 43q0 1 2 1l6 1q9 2 18 0 12-2 24-11 7-5 23-22 14-14 23-22 29-27 93-31 48-3 104 8l5 1q32 6 59-17t34.5-61.5-9.5-70-49-37.5zm-232 53q-9 47-23.5 85.5t-30.5 60-31 18.5q-17-3-27.5-29.5t-11.5-68 8-88.5 25-85.5 35-59T170 66q14 3 21.5 28.5t7 66.5-9.5 89zm-38-64q-21 3-36 15.5T96.5 232t6 35.5T131 295q8 4 16 .5t10-12.5q5-18 9-37.5t6-38.5q1-10-5.5-16t-15.5-5zm204 217q-15 4-31 2l-27-4q-4 0-6 4l-14 25q-2 4-5 7l-24 33q-2 2-1.5 5t3.5 5l8 4q17 10 38 9l8-1q13 0 23.5-8t14.5-20l19-52q2-4 0-6.5t-6-2.5z"/></svg> NEWS</button>
+            <button id="ShowMogStation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 501 512"><path d="M214 506q-28-26-39-44-15-27-11-57l-41 10-2-5 33-47q-12-6-26-3-8 2-24 10l-2 1q-13-14-28.5-15T35 366l-4 2q-11 5-19 7l2-4q1-5 3-8 28-49 77-75l10-4q15-6 15 9-1 28 19 36 5 3 16 4l7 2 2-6-12-7-6-3q-8-3-8-5-1-5 2-6.5t9-1.5h4l4-3-5-2q-7-4-10-6t-8-8l-3-3 14-4 5 1 2-18q4-31 5-46 0-5-4-16-3-7-3-10l-1-4q-6-25-7-38-1-10 4.5-14t15.5-1q5 2 15 7 12 5 18 7 14 3 34 4 3 0 7-2.5t4-4.5q0-9-5-18-2-2-8-6l-5-3q-15-13-19-32t4.5-36.5 26-27T269 17q21 4 34 18t15 35q2 18-9.5 35.5T280 128q-8 3-11 8t-1 10q2 4 8.5 6t10.5 1q11-2 31-10l16-6q7-3 11-3 7-1 11.5 2t2.5 10l-12 60q-2 10-1 19l5 55h3q4-1 6.5-.5t6.5 2.5l4 2-2 3q-3 6-6 7.5t-11 4.5l-6 2v4h3q5 0 7 1.5t6 5.5l3 2-3 3q-5 4-7 4l-6 1q-5 0-7.5 1.5T338 330q14 7 27-1.5t17-25.5l4-21 8 2q12 4 17 7 45 24 72 71 3 4 4 8l1 6q-8-3-22-9-22-11-33-11-19-2-35 15-15-9-24-11-15-3-28 2l34 49q-8 3-17 1-5-1-16-5l-10-4q3 31-12 58-11 21-38 45-8-22-15.5-29t-21.5-6.5-21.5 7.5-14.5 28zm14-204q-2-10-18-20.5t-26-8.5q-2 0-4 3l-2 1 2 3q2 4 4 5l36 15zm44 1q4-2 11-5l37-14q1-1 2-3.5t0-4.5-6-3q-10-2-25.5 8.5T272 303zm-76-132q-6-2-16-6l-16-7 8 36zm111-1q4 4 11 12l11 12 8-35zm-41 153l-16-16-4 4q-6 7-6 10.5t6 10.5l4 5z"/></svg> MOG STATION</button>
+        </nav>
+
+        <!-- Notice -->
+        <div class="notice"></div>
+        <div class="notice-fade"></div>
+
         <!-- Character List -->
         <div class="character-list" id="character-list">
-            <div class="cl-toggle">
-                <button id="Action.ToggleCharacterWindowView">
-                    <img src="http://xivapi.com/launcher/bars-regular.svg" height="24">
-                </button>
-            </div>
-            <div class="cl-news">
-                <button id="Action.ToggleNewsView">
-                    <img src="./assets/images/news-regular.svg" height="24">
-                </button>
-            </div>
             <div class="cl-add">
-                <button id="Action.OpenAddCharacterWindow">
-                    <img src="http://xivapi.com/launcher/user-plus.svg" height="24"> Add Character
+                <button id="OpenAddCharacterWindow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M122 208v-53q0-3-2.5-5.5T113 147H86q-4 0-6.5 2.5T77 155v53q0 3-1.5 4.5T72 214H19q-4 0-6.5 2.5T10 222v28q0 4 2.5 6.5T19 259h53q2 0 3.5 1.5T77 264v53q0 4 2.5 6.5T86 326h27q4 0 6.5-2.5t2.5-6.5v-53q0-2 1.5-3.5t3.5-1.5h53q4 0 6.5-2.5t2.5-6.5v-28q0-3-2.5-5.5T180 214h-53q-2 0-3.5-1.5T122 208zm138 115q-49 11-80 31-36 23-36 54v7q0 9 7 15.5t16 6.5h312q10 0 16.5-6.5T502 415v-7q0-31-37-55-31-19-81-30-13-3-21-12.5t-8-22.5v-3q0-11 9-18 22-15 35-43t13-55q0-37-26-62.5T323 81t-63 25.5-26 62.5q0 27 12.5 54t33.5 43q8 6 8 17v5q0 13-8 23t-20 12z"/></svg>
+                    Add Character
                 </button>
             </div>
-            <span id="cl-list">
-            </span>
-            <div class="cl-notes">
-                <p>
-                    Username and passwords are not stored on this computer when you save a login, instead
-                    a character "Session ID" is saved. This ID is what the game uses to talk to the servers
-                    and is valid for 7 days.
-                </p>
-                <p>
-                    <strong>Never provide your Session ID to ANYONE</strong>. It cannot be forcefully expired
-                    and would allow anyone to login to your character, even if you have a Two-Factor token
-                    or if you change your password.
-                </p>
-            </div>
+            <div class="cl-list"></div>
         </div>
-        <!-- Add character form -->
+
+        <!-- Character Add Form -->
         <div class="add-character-form" id="add-character-form">
-            <form>
-                <h3>
+            <form id="AddCharacterForm">
+                <h1>
                     Add Character
-                    <button type="button" class="ac-close" id="Action.CloseAddCharacterWindow">
+                    <button type="button" class="ac-close" id="CloseAddCharacterWindow">
                         <img src="https://xivapi.com/launcher/times-regular.svg" height="24">
                     </button>
-                </h3>
-                <br>
+                </h1>
+                <br><br>
+                <h2>Character</h2>
                 <div class="ac-row-flex2">
                     <div>
                         <input type="text" id="characterName" placeholder="Character Name">
@@ -71,7 +62,8 @@
                         <select id="characterServer"></select>
                     </div>
                 </div>
-                <label for="otp">Square-Enix Account</label>
+                <br>
+                <h2>Square-Enix Account</h2>
                 <div class="ac-row-flex2">
                     <div>
                         <input type="text" id="username" placeholder="Username">
@@ -86,28 +78,38 @@
                 </div>
                 <br>
                 <p>
-                    Your username and password is not saved, a login session is stored to allow
-                    you to login to your account for up to 7 days.
+                    When you save your character, you are storing your username and
+                    password in plain text on this machine. It is your responsibility
+                    to protect this machine and your SE Account such as using
+                    a One Time Password token)
                 </p>
-                <button type="button" id="Action.AddCharacter">Add Character</button>
+                <br>
+                <div align="center">
+                    <button type="button" class="btn-save" id="AddCharacter">Save</button>
+                </div>
             </form>
         </div>
+
+        <!-- Character View -->
+        <div class="character-view"></div>
+        <div class="character-fade"></div>
+
         <!-- Settings form -->
-        <div class="settings-form" id="settings-form">
+        <div class="settings-form">
             <form>
-                <h3>
+                <h1>
                     Launcher Settings
-                    <button type="button" class="ac-close" id="Action.CloseLauncherSettingsWindow">
+                    <button type="button" class="ac-close" id="CloseLauncherSettingsWindow">
                         <img src="https://xivapi.com/launcher/times-regular.svg" height="24">
                     </button>
-                </h3>
+                </h1>
                 <label>Game Path</label>
                 <div class="ac-row-flex2">
                     <div>
                         <input type="text" id="gamePath" placeholder="FFXIV Game Path">
                     </div>
                     <div>
-                        <button type="button" id="Action.FindGamePath">Browse</button>
+                        <button type="button" id="FindGamePath">Browse</button>
                     </div>
                 </div>
                 <p>Browse and select the folder: <strong>FINAL FANTASY XIV - A Realm Reborn</strong></p>
@@ -147,23 +149,20 @@
                     </select>
                 </div>
                 <br>
-                <button type="button" id="Action.SaveSettings">Save Settings</button>
+                <button type="button" id="SaveSettings">Save Settings</button>
             </form>
         </div>
+
         <!-- Lodestone News -->
-        <div class="news news-hidden" id="news">
-            <h1 class="news-header">
-                Lodestone News
-            </h1>
-            <div class="lodestone" id="lodestone">
-            </div>
-        </div>
+        <div class="lodestone-news"></div>
+
         <!-- Expansion Logo -->
         <div class="expansion">
             <img src="https://xivapi.com/launcher/expansion.png" height="142">
         </div>
     </main>
     <!-- APP Javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 </html>

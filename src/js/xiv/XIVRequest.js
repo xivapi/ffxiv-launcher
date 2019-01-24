@@ -1,10 +1,13 @@
 import Settings from './Settings';
 
-// i don't know if this is needed, the patch-gamever server needs https ssl certificate verification
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
-class Request
+/**
+ * This handles all auto-login logic
+ */
+class XIVRequest
 {
+    /**
+     * Perform a request action
+     */
     action(options, postdata, callback)
     {
         // request object
@@ -59,7 +62,7 @@ class Request
 
         this.action(options, false, response => {
             callback(
-                this.findDatInDom(response.body, '_STORED_')
+                this.findDataInDom(response.body, '_STORED_')
             );
         });
     }
@@ -97,7 +100,7 @@ class Request
 
         this.action(options, postdata, response => {
             callback(
-                this.findDatInDom(response.body, 'login=auth,ok,sid')
+                this.findDataInDom(response.body, 'login=auth,ok,sid')
             );
         });
     }
@@ -139,7 +142,7 @@ class Request
         });
     }
 
-    findDatInDom(body, data)
+    findDataInDom(body, data)
     {
         let line = body.split("\n").filter(line => line.indexOf(data) > -1)[0];
 
@@ -157,4 +160,4 @@ class Request
     }
 }
 
-export default new Request();
+export default new XIVRequest();

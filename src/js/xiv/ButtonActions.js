@@ -1,7 +1,10 @@
 import GameLauncher from "./GameLauncher";
 import Characters from "./Characters";
 import SettingsManager from "./SettingsManager";
+import LodestoneNews from "./LodestoneNews";
 const dialog  = require('electron').remote.dialog;
+const { shell } = require('electron');
+
 
 /**
  * Watches all the buttons
@@ -10,39 +13,26 @@ class ButtonActions
 {
     watch()
     {
-        this.watchAddCharacterWindow();
-        this.watchCharacterSelection();
-        this.watchLauncherSettingsWindow();
-        this.watchToggleCharacterWindowView();
-        this.watchToggleNewsView();
-    }
+        const $html = $('html');
+        const $addCharacterForm = $('.add-character-form');
+        const $btnAddCharacter = $('#AddCharacter');
+        const $windowSettingsForm = $('.settings-form');
 
-    /**
-     * Watch the "Add Character" window related buttons
-     */
-    watchAddCharacterWindow()
-    {
-        document.getElementById('Action.AddCharacter').onclick = event => {
+        $html.on('click', '#AddCharacter', event => {
             GameLauncher.requestLogin();
-        };
+        });
 
-        document.getElementById('Action.OpenAddCharacterWindow').onclick = event => {
-            const ui = document.getElementById('add-character-form');
-            if (!ui.classList.contains('open')) {
-                ui.classList.add('open');
-            }
-        };
-        document.getElementById('Action.CloseAddCharacterWindow').onclick = event => {
-            const ui = document.getElementById('add-character-form');
-            if (ui.classList.contains('open')) {
-                ui.classList.remove('open');
-            }
-        };
-    }
+        $html.on('click', '#OpenAddCharacterWindow', event => {
+            $addCharacterForm.addClass('open');
+            $btnAddCharacter.prop('disabled', false);
+        });
 
-    watchLauncherSettingsWindow()
-    {
-        document.getElementById('Action.FindGamePath').onclick = event => {
+        $html.on('click', '#CloseAddCharacterWindow', event => {
+            $addCharacterForm.removeClass('open');
+            $btnAddCharacter.prop('disabled', false);
+        });
+
+        $html.on('click', '#FindGamePath', event => {
             const path = dialog.showOpenDialog({
                 properties: ['openDirectory']
             });
@@ -50,14 +40,15 @@ class ButtonActions
             if (path) {
                 document.getElementById('gamePath').value = path[0].trim();
             }
-        };
+        });
 
-        document.getElementById('Action.SaveSettings').onclick = event => {
+        $html.on('click', '#SaveSettings', event => {
             const gamePath = document.getElementById('gamePath').value.trim();
             const expansion = document.getElementById('expansion').value.trim();
             const language = document.getElementById('language').value.trim();
             const region = document.getElementById('region').value.trim();
             const raelyslanguage = document.getElementById('raelysLanguage').value.trim();
+
             SettingsManager.saveSettings({
                 gamePath: gamePath,
                 expansion: expansion,
@@ -67,60 +58,38 @@ class ButtonActions
             });
 
             document.getElementById('settings-form').classList.remove('open');
-        };
+        });
 
-        document.getElementById('Action.OpenLauncherSettingsWindow').onclick = event => {
-            const ui = document.getElementById('settings-form');
-            if (!ui.classList.contains('open')) {
-                ui.classList.add('open');
-            }
-        };
-        document.getElementById('Action.CloseLauncherSettingsWindow').onclick = event => {
-            const ui = document.getElementById('settings-form');
-            if (ui.classList.contains('open')) {
-                ui.classList.remove('open');
-            }
-        };
-    }
+        $html.on('click', '#OpenLauncherSettingsWindow', event => {
+            $windowSettingsForm.addClass('open');
+        });
 
-    /**
-     * Watch for clicking on a character on the right side
-     */
-    watchCharacterSelection()
-    {
-        if (Object.keys(Characters.list).length === 0) {
-            return;
-        }
+        $html.on('click', '#CloseLauncherSettingsWindow', event => {
+            $windowSettingsForm.removeClass('open');
+        });
 
-        document.body.onclick = function(e){
-            e = window.event? event.srcElement: e.target;
-            if (e.className && e.className.indexOf('action-boot-character') !== -1) {
-                const id = e.dataset.id;
-                Characters.bootCharacter(id);
-            }
-        }
-    }
+        $html.on('click', '#ShowCharacter', event => {
+            const id = $(event.currentTarget).data('id');
+            Characters.showCharacter(id);
+        });
 
-    /**
-     * Watch for toggling between portrait-only and full character view
-     */
-    watchToggleCharacterWindowView()
-    {
-        document.getElementById('Action.ToggleCharacterWindowView').onclick = event => {
-            const ui = document.getElementById('character-list');
-            ui.classList.toggle('icons-only');
-        };
-    }
+        $html.on('click', '#StartGame', event => {
+            const id = $(event.currentTarget).data('id');
+            Characters.bootCharacter(id);
+        });
 
-    /**
-     * Watch for toggling News on and off
-     */
-    watchToggleNewsView()
-    {
-        document.getElementById('Action.ToggleNewsView').onclick = event => {
-            const ui = document.getElementById('news');
-            ui.classList.toggle('news-hidden');
-        };
+        $html.on('click', '#DeleteCharacter', event => {
+            const id = $(event.currentTarget).data('id');
+            Characters.deleteCharacter(id);
+        });
+
+        $html.on('click', '#ShowLodestoneNews', event => {
+            LodestoneNews.open ? LodestoneNews.hideNews() : LodestoneNews.showNews();
+        });
+
+        $html.on('click', '#ShowMogStation', event => {
+            shell.openExternal("https://secure.square-enix.com/account/app/svc/mogstation/");
+        });
     }
 }
 

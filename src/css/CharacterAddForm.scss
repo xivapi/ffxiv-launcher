@@ -1,12 +1,16 @@
 .add-character-form {
     position: absolute;
-    top: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 250px 40px #000;
+
     right: 410px;
     width: 500px;
-    padding: 20px;
+    padding: 40px;
     background-color: #333;
-    border-radius: 3px;
-    box-shadow: 0 0 3px #000;
+    border-radius: 5px;
+    border: solid 1px #000;
     z-index: 50;
     display: none;
 
@@ -30,12 +34,24 @@
         line-height: 20px;
     }
 
-    h3 {
+    h1 {
+        font-size: 32px;
+        font-weight: 300;
         margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
     }
 
     div {
         margin-bottom: 10px;
+    }
+
+    .btn-save {
+        font-weight: 600;
+        font-size: 20px;
     }
 
     .ac-close {

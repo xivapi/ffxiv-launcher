@@ -4,85 +4,53 @@
 // This contains the styling required for the news shown on the launcher
 //
 
-.news {
+.lodestone-news {
     position: absolute;
-    top: 100px;
-    left: 50px;
-    background: #222;
-    opacity:.8;
-    padding-right: 20px;
-    padding-bottom: 10px;
-    border-radius: 25px;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    width: 60%;
 
-    .news-header {
-        text-align: left;
-        padding-bottom: 10px;
+    background: -moz-linear-gradient(left, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 5%, rgba(17,17,17,0.7) 60%, rgba(17,17,17,0) 100%);
+    background: -webkit-linear-gradient(left, rgba(17,17,17,1) 0%,rgba(17,17,17,1) 5%,rgba(17,17,17,0.7) 60%,rgba(17,17,17,0) 100%);
+    background: linear-gradient(to right, rgba(17,17,17,1) 0%,rgba(17,17,17,1) 5%,rgba(17,17,17,0.7) 60%,rgba(17,17,17,0) 100%);
+
+    padding: 120px 0 0 40px;
+
+    display: none;
+
+    &.open {
+        display: block;
     }
 
-    .lodestone {
-        > div {
-            padding: 5px 50px;
-            font-size: 15px;
-            top: 30px;
+    > div {
+        display: flex;
+        margin-bottom: 20px;
 
-            > a:link {
-                padding: 5px 50px;
-                font-size: 15px;
-                top: 30px;
-                color: #fff;
-                
-            }
-            > a:visited {
-                padding: 5px 50px;
-                font-size: 15px;
-                top: 30px;
-                color: #fff;
-                
-            }
-            > a:hover {
-                padding: 5px 50px;
-                font-size: 15px;
-                top: 30px;
-                color: #fff;
-                
-            }
+        > div:first-of-type {
+            flex: 0 1 200px;
         }
 
-
-        
-    }
-}
-
-
-//
-// Lodestone News Styling
-//
-// This contains the styling required for closing the news.
-//
-
-.news-hidden {
-    position: absolute;
-    top: 100px;
-    left: 50px;
-    background: #222;
-    opacity:.8;
-    padding-right: 20px;
-    padding-bottom: 10px;
-    border-radius: 25px;
-    display:none;
-
-    .news-header {
-        text-align: left;
-    }
-
-    .lodestone {
-        > div {
-            padding: 5px 50px;
-            font-size: 15px;
-            top: 30px;
+        > div:last-of-type {
+            flex: 0 1 calc(100% - 200px);
         }
-        
+
+        img {
+            width: 180px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 5px;
+        }
+
+        small {
+            font-size: 13px;
+            text-transform: uppercase;
+            opacity: 0.3;
+        }
     }
 }
-
 

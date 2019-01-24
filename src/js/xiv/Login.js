@@ -1,5 +1,6 @@
 import GameFiles from './GameFiles';
 import XIVRequest from './XIVRequest';
+import Notice from './Notice';
 
 class Login
 {
@@ -11,11 +12,11 @@ class Login
 
     }
 
-    go(callback)
+    login(username, password, otp, callback)
     {
-        this.username = document.getElementById('username').value.trim();
-        this.password = document.getElementById('password').value.trim();
-        this.otp = document.getElementById('otp').value.trim();
+        this.username = username;
+        this.password = password;
+        this.otp = otp;
 
         // ask for the real USER_SID
         this.getRealUserSid(callback);
@@ -26,11 +27,7 @@ class Login
         this.getSudoUserSid(SUDO_USER_ID => {
             let localGameVersion = GameFiles.version();
             if (!localGameVersion) {
-                const ui = document.getElementById('Action.AddCharacter');
-                ui.disabled = false;
-                ui.innerHTML = 'Add Character';
-
-                alert("Your game version could not be found, please check the game path via the settings.");
+                Notice.show("Your game version could not be found, please check the game path via the settings.");
                 return;
             }
 

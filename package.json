@@ -27,7 +27,9 @@
     "dist": "electron-builder"
   },
   "dependencies": {
+    "keytar": "^4.3.0",
     "moment": "^2.22.2",
+    "node-machine-id": "^1.1.10",
     "sha1-file": "^1.0.0",
     "uuid": "^3.3.2"
   }

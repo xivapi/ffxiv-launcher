@@ -1,11 +1,13 @@
 import Settings from './Settings';
 import SettingsManager from './SettingsManager';
 import Login from './Login';
-import Servers from './Servers';
 import ButtonActions from './ButtonActions';
 import Characters from './Characters';
+import Lodestone from './LodestoneNews';
 import GameFiles from './GameFiles';
+import Notice from './Notice';
 const fs = require('fs');
+//const keytar = require('keytar');
 
 class GameLauncher
 {
@@ -16,12 +18,13 @@ class GameLauncher
 
         // load characters
         Characters.loadCharacters(true);
+        Characters.loadGameServers();
 
         // watch button interactions
         ButtonActions.watch();
 
-        // populate server list
-        this.populateCharacterAddServerList();
+        // show lodestone news
+        Lodestone.showNews();
 
         // this is on a loop so that if a character does not exist on the API,
         // then hopefully in the next few minutes it will. Current settings
@@ -29,32 +32,8 @@ class GameLauncher
         // queried anymore times.
         Characters.populateCharacterData();
         setInterval(() => {
-            console.log('Polling ...');
             Characters.populateCharacterData();
         }, Settings.custom.xivapiPollDelay);
-
-        // Check if any character sessions have expired, if so
-        // they will be removed from the list
-        // todo - this could be handled better, eg prompt user
-        Characters.removeExpiredCharacters();
-        setInterval(() => {
-            console.log('Check Expiry ...');
-            Characters.removeExpiredCharacters();
-        }, Settings.custom.checkCharacterExpiryDelay);
-    }
-
-    /**
-     * Populate the list of game servers
-     */
-    populateCharacterAddServerList()
-    {
-        let select = document.getElementById("characterServer");
-        for(let i in Servers) {
-            let server = Servers[i];
-            let option = document.createElement("option");
-            option.text = server;
-            select.add(option);
-        }
     }
 
     /**
@@ -62,37 +41,54 @@ class GameLauncher
      */
     requestLogin()
     {
-        const ui = document.getElementById('Action.AddCharacter');
-        ui.disabled = true;
-        ui.innerHTML = 'Please wait ...';
+        const name = $('#characterName').val().trim();
+        const server = $('#characterServer').val().trim();
+        const username = $('#username').val().trim();
+        const password = $('#password').val().trim();
+        const otp = $('#otp').val().trim();
 
-        Login.go(response => {
+        // check we filled in form
+        if (name.length === 0 || server.length === 0 || username.length === 0 || password.length === 0) {
+            Notice.show('Please fill in the form correctly!');
+            return;
+        }
+
+        // disable save button and inform user what we're doing
+        $('#AddCharacter').prop('disable', true);
+        Notice.show('<h1>Checking account details</h1><p>Using the details provided, the launcher is attempting to login so it can confirm and save this character.</p><p>This will not start the game.</p>');
+
+        // process login
+        Login.login(username, password, otp, response => {
             console.log('LOGIN COMPLETE');
             console.log('USER SID == '+ response.userRealSid);
             console.log('LIVE GAME VERSION == '+ response.latestGameVersion);
 
             if (response.userRealSid) {
-                // save it
+                const id = require('uuid/v4')();
+
+                // store password in users OS vault
+                //keytar.setPassword('ffxiv-launcher', id, password);
+
+                // save character
                 Characters.saveCharacter({
-                    id:         require('uuid/v4')(),
+                    id:         id,
                     api:        false,
                     lsid:       null,
-                    name:       document.getElementById("characterName").value.trim(),
-                    server:     document.getElementById("characterServer").value.trim(),
+                    name:       name,
+                    server:     server,
                     avatar:     'https://xivapi.com/launcher/faceless.png',
-                    session:    response.userRealSid,
+                    username:   username,
+                    password:   password,
+                    otp:        otp.length > 1,
                     added:      (new Date).getTime()
                 });
 
                 // hide add character view
-                document.getElementById('add-character-form').classList.remove('open');
-                alert('Saved character! Click on the character on the right to start the game.');
+                $('.add-character-form').removeClass('open');
+                Notice.show('<h1>Saved character!</h1><p>Click on the character on the right to start the game.</p>')
             } else {
-                alert('Login failed - Either your Username/Password/OTP is wrong or the game is down for maintenance right now.');
+                Notice.show('<h1>Login failed</h1><p>Either your Username/Password/OTP is wrong or the game is down for maintenance right now.</p>');
             }
-
-            ui.disabled = false;
-            ui.innerHTML = 'Add Character';
         });
     }
 
@@ -103,7 +99,7 @@ class GameLauncher
     {
         const gameFilename = Settings.se.GamePath + Settings.se.Dx11Path;
         if (!fs.existsSync(gameFilename)) {
-            alert("Your game path could not be found, please update it via the settings.");
+            Notice.show("Your game path could not be found, please update it via the settings.");
             return false;
         }
 
