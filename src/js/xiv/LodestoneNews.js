@@ -31,12 +31,11 @@ class LodestoneNews
 
     showNewsRender(response)
     {
-        console.log(response);
         this.$view.addClass('open');
 
         for(let i in response.News) {
             const news = response.News[i];
-            const time = moment(news.Time).format("dddd, MMMM Do YYYY");;
+            const time = moment(news.Time * 1000).format("dddd, MMMM Do YYYY");;
 
             this.$view.append(`
                     <div>

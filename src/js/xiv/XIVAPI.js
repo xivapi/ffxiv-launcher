@@ -31,8 +31,10 @@ class XIVAPI
      */
     request(url, params, callback)
     {
+        const timestamp = +new Date;
+
         url = `${Settings.custom.xivapiEndpoint}${url}`;
-        params.push(`key=${Settings.custom.xivapiKey}`);
+        params.push(`t=${timestamp}`);
         url = `${url}?${params.join('&')}`;
 
         let xhr = new XMLHttpRequest();

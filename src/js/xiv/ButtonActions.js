@@ -90,6 +90,12 @@ class ButtonActions
         $html.on('click', '#ShowMogStation', event => {
             shell.openExternal("https://secure.square-enix.com/account/app/svc/mogstation/");
         });
+
+        $html.on('keyup', '#otp2', event => {
+            if (event.keyCode === 13) {
+                $('.btn-start-game').trigger('click');
+            }
+        })
     }
 }
 

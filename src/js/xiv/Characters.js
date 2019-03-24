@@ -201,8 +201,6 @@ class Characters
         const character = this.list[id];
         $('.character-fade').addClass('open');
 
-        console.log(character);
-
         let otp = '';
         if (character.otp) {
             otp = `<div><input type="text" class="otp2" id="otp2" placeholder="OTP"></div>`
