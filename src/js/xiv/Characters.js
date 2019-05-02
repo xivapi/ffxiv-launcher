@@ -263,7 +263,7 @@ class Characters
             // hide notice after 5 seconds
             setTimeout(() => {
                 Notice.hide();
-            }, 5000);
+            }, 3000);
         });
     }
 }

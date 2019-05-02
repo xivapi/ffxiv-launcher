@@ -35,7 +35,7 @@ Make sure your IDE is set to: EMCAScript 6
 
 ## Compile
 
-- `yarn dist`
+- `yarn dist` - This also compiles the CSS.
 
 This will build an installation to: `/dist/FFXIV-Launcher Setup <version>.exe` which you can share and install.
 

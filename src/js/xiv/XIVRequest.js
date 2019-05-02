@@ -1,3 +1,4 @@
+import {machineId, machineIdSync} from 'node-machine-id';
 import Settings from './Settings';
 
 /**
@@ -56,7 +57,7 @@ class XIVRequest
             requestCert: true,
             agent: false,
             headers: {
-                'User-Agent': Settings.se.UserAgent,
+                'User-Agent': Settings.se.UserAgent.replace('-id-', machineIdSync({original: true})),
             },
         };
 
@@ -91,7 +92,7 @@ class XIVRequest
             requestCert: true,
             agent: false,
             headers: {
-                'User-Agent': Settings.se.UserAgent,
+                'User-Agent': Settings.se.UserAgent.replace('-id-', machineIdSync({original: true})),
                 'Content-Type': Settings.se.LoginOAuthActionRequest.ContentType,
                 'Content-Length': postdata.length,
                 'Referer': Settings.se.LoginOAuthActionRequest.Referer
@@ -127,7 +128,7 @@ class XIVRequest
             agent: false,
             headers: {
                 'X-Hash-Check': 'X-Hash-Check',
-                'User-Agent': Settings.se.UserAgent,
+                'User-Agent': Settings.se.UserAgent.replace('-id-', machineIdSync({original: true})),
                 'Content-Type': Settings.se.LoginGameVersionRequest.ContentType,
                 'Content-Length': localGameHash.length,
                 'Referer': Settings.se.LoginGameVersionRequest.Referer
