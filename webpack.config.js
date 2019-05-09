@@ -7,6 +7,7 @@ Encore
     .addEntry('js/app', './src/js/app.js')
     .addStyleEntry('css/app', './src/css/app.scss')
     .enableSassLoader()
+    .disableSingleRuntimeChunk()
 ;
 
 // enaboe node environment

@@ -1,10 +1,12 @@
-const { app, BrowserWindow } = require('electron');
+const { app, session, BrowserWindow } = require('electron');
 const path = require('path');
 const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
+
+
 
 function createWindow () {
     // Create the browser window.
@@ -13,6 +15,9 @@ function createWindow () {
         height: 900,
         icon: path.join(__dirname, 'logo_small.ico'),
         frame: false,
+        webPreferences: {
+            webSecurity: false
+        }
     });
 
     // and load the index.html of the app.
@@ -23,7 +28,7 @@ function createWindow () {
     }));
 
     // Open the DevTools.
-    //win.webContents.openDevTools();
+    win.webContents.openDevTools();
 
     // Emitted when the window is closed.
     win.on('closed', () => {
@@ -31,6 +36,11 @@ function createWindow () {
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
         win = null
+    });
+
+    session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
+        details.requestHeaders['User-Agent'] = 'ffxivcomapp-e/1.2.0.0 CFNetwork/978.0.7 Darwin/18.5.0';
+        callback({ cancel: false, requestHeaders: details.requestHeaders });
     });
 }
 
