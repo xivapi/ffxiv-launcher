@@ -11,6 +11,8 @@
     bottom: 0;
     width: 400px;
 
+    overflow-y: auto;
+
     background-color: transparent;
     background: -moz-linear-gradient(left, rgba(0,0,0,0) 10%, rgba(0,0,0,1) 95%);
     background: -webkit-linear-gradient(left, rgba(0,0,0,0) 10%,rgba(0,0,0,1) 95%);
