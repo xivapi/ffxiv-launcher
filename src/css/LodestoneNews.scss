@@ -12,6 +12,7 @@
     bottom: 0;
     display: none;
     padding-left: 2em;
+    direction: rtl; // place the scrollbar on the left side.
 
     background: -moz-linear-gradient(left, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 5%, rgba(17,17,17,0.7) 60%, rgba(17,17,17,0) 100%);
     background: -webkit-linear-gradient(left, rgba(17,17,17,1) 0%,rgba(17,17,17,1) 5%,rgba(17,17,17,0.7) 60%,rgba(17,17,17,0) 100%);
@@ -22,6 +23,7 @@
     }
 
     > div {
+        direction: ltr; // Ensure our text is still displayed correctly.
         display: flex;
         margin-bottom: 20px;
 
