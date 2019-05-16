@@ -4,14 +4,11 @@
 // List of characters you see on the right side.
 //
 .character-list {
-    position: absolute;
-    z-index: 10;
-    top: 50px;
-    right: 0;
-    bottom: 0;
-    width: 400px;
-
-    overflow-y: auto;
+    width: 35%;
+    position: fixed;
+    top: 3em;
+    bottom:0;
+    right:0;
 
     background-color: transparent;
     background: -moz-linear-gradient(left, rgba(0,0,0,0) 10%, rgba(0,0,0,1) 95%);
@@ -19,8 +16,8 @@
     background: linear-gradient(to right, rgba(0,0,0,0) 10%,rgba(0,0,0,1) 95%);
 
     .cl-add {
+        padding: 1em 2em;
         text-align: right;
-        padding: 30px;
 
         button {
             color: #fff;
@@ -52,42 +49,61 @@
 
     .cl-list {
         text-align: right;
-        padding: 30px;
+        padding: 0 2em 0 .5em;
+        position: fixed;
+        top:8.25em;
+        bottom:0;
+        right:0;
+        width:35%;
+        overflow-y: auto;
 
         > button {
             width: 100%;
             display: flex;
-            margin-bottom: 30px;
+            margin-bottom: 1.5em;
             flex-direction: row;
             justify-content: flex-end;
             background-color: transparent;
             border: none;
-            height: 66px;
-            line-height: 66px;
+            height: 5em;
+            line-height: 5em;
             color: #fff;
-            border-radius: 64px;
+            border-radius: 5em;
             padding: 0;
             transition: 100ms;
 
             > img {
-                height: 64px;
-                border-radius: 64px;
+                height: 5em;
+                border-radius: 5em;
                 box-shadow: 0 1px 6px #000;
+
+                @if variable-exists(debug) {
+                    // Debug mode will replace your characters in the list and
+                    // blur their names, so you can take easier screenshots.
+                    content: url('https://xivapi.com/launcher/faceless.png');
+                }
             }
 
             > div {
-                margin: 0 20px 0 0;
+                margin: 0 1em 0 0;
                 display: flex;
 
                 h4 {
-                    font-size: 22px;
+                    font-size: 1.5em;
                     font-weight: 300;
+                    white-space:nowrap;
+                    text-overflow: ellipsis;
+
+                    @if variable-exists(debug) {
+                      color: transparent;
+                      text-shadow: 0 0 .8em rgba(255,255,255,.8);
+                    }
                 }
 
                 svg {
                     fill: #fff;
-                    height: 24px;
-                    margin: 20px 5px 0 0;
+                    height: 1.7em;
+                    margin: 1.5em .5em 0 0;
                     opacity: 0.2;
                 }
             }
