@@ -44,6 +44,15 @@
             font-size: 20px;
             font-weight: 300;
             margin-bottom: 5px;
+
+            a {
+                color: #faff8f;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
 
         small {
