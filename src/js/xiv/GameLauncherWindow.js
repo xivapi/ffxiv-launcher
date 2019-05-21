@@ -1,4 +1,5 @@
 const { remote } = require('electron');
+const shell = require('electron').shell;
 
 class GameLauncherWindow
 {
@@ -30,6 +31,14 @@ class GameLauncherWindow
         document.getElementById("Launcher.Window.Close").addEventListener("click", () => {
             let window = remote.BrowserWindow.getFocusedWindow();
             window.close();
+        });
+
+        /**
+         * Ensures links open externally and not within the launcher
+         */
+        $(document).on('click', 'a[href^="http"]', (event) => {
+            event.preventDefault();
+            shell.openExternal(event.target.href);
         });
     }
 }

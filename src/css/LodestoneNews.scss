@@ -3,28 +3,27 @@
 //
 // This contains the styling required for the news shown on the launcher
 //
-
 .lodestone-news {
-    position: absolute;
-    z-index: 10;
-    top: 50px;
+    width: 65%;
+    overflow-y: auto;
+    position: fixed;
     left: 0;
+    top: 8.15em;
     bottom: 0;
-    width: 60%;
+    display: none;
+    padding-left: 2em;
+    direction: rtl; // place the scrollbar on the left side.
 
     background: -moz-linear-gradient(left, rgba(17,17,17,1) 0%, rgba(17,17,17,1) 5%, rgba(17,17,17,0.7) 60%, rgba(17,17,17,0) 100%);
     background: -webkit-linear-gradient(left, rgba(17,17,17,1) 0%,rgba(17,17,17,1) 5%,rgba(17,17,17,0.7) 60%,rgba(17,17,17,0) 100%);
     background: linear-gradient(to right, rgba(17,17,17,1) 0%,rgba(17,17,17,1) 5%,rgba(17,17,17,0.7) 60%,rgba(17,17,17,0) 100%);
-
-    padding: 120px 0 0 40px;
-
-    display: none;
 
     &.open {
         display: block;
     }
 
     > div {
+        direction: ltr; // Ensure our text is still displayed correctly.
         display: flex;
         margin-bottom: 20px;
 
@@ -45,6 +44,15 @@
             font-size: 20px;
             font-weight: 300;
             margin-bottom: 5px;
+
+            a {
+                color: #faff8f;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
 
         small {
@@ -54,4 +62,3 @@
         }
     }
 }
-
