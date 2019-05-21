@@ -212,7 +212,7 @@ class Characters
             <div>
                 <img src="${character.avatar}" class="avatar">
                 <h1>${character.name}</h1>
-                <small>${character.server}</small>
+                <small>${character.server} - ${character.username}</small>
             </div>
             <hr>
             <div>
