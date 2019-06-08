@@ -50,6 +50,7 @@ Open with `CTRL+Shift+I`
 # Todo
 
 - Save expansion per character rather than app wide
+- Add an "Auto-Login" option, if character has OTP it will just auto-prompt, if game is already running it won't auto-login (assumes you're selecting another character)
 - Re-write the settings system to split Default Settings and User Settings, simplify it all
 - Add maintenance check (parse: http://frontier.ffxiv.com/worldStatus/gate_status.json)
 - Allow non-lodestone characters (eg accounts with many characters), right now it spams XIVAPI
