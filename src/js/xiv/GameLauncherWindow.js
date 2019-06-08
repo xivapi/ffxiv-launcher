@@ -11,8 +11,7 @@ class GameLauncherWindow
     init()
     {
         document.getElementById("Launcher.Window.Min").addEventListener("click", () => {
-            let window = remote.BrowserWindow.getFocusedWindow();
-            window.minimize();
+            remote.BrowserWindow.getFocusedWindow().minimize();
         });
 
         document.getElementById("Launcher.Window.Max").addEventListener("click", () => {
@@ -29,8 +28,7 @@ class GameLauncherWindow
         });
 
         document.getElementById("Launcher.Window.Close").addEventListener("click", () => {
-            let window = remote.BrowserWindow.getFocusedWindow();
-            window.close();
+            remote.BrowserWindow.getFocusedWindow().close();
         });
 
         /**
@@ -40,6 +38,13 @@ class GameLauncherWindow
             event.preventDefault();
             shell.openExternal(event.target.href);
         });
+
+        /**
+         * Set a random background
+         */
+        const bgNumber = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+        $('main').css('background', `url('https://xivapi.com/launcher/background${bgNumber}.jpg')`);
+        $('main').css('background-size', 'cover');
     }
 }
 

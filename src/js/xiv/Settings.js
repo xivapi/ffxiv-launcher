@@ -18,6 +18,7 @@ module.exports = {
         },
         // Characters
         checkCharacterExpiryDelay: 60000,
+        closeAppOnGameStart: false,
     },
     // Square-Enix specific options
     se: {

@@ -1,7 +1,10 @@
+import Settings from './Settings';
+import SettingsManager from './SettingsManager';
 import GameLauncher from "./GameLauncher";
 import Notice from './Notice';
 import XIVAPI from "./XIVAPI";
 import Login from "./Login";
+
 const fs = require("fs");
 const app = require('electron').remote.app;
 
@@ -16,6 +19,7 @@ class Characters
         this.directory = app.getPath('userData') + '/data/';
         this.filename = 'characters.json';
 
+        // https://xivapi.com/servers/dc
         this.servers = {
                 "Aether": ["Adamantoise", "Cactuar", "Faerie", "Gilgamesh", "Jenova", "Midgardsormr", "Sargatanas", "Siren"],
                 "Chaos": ["Cerberus", "Louisoix", "Moogle", "Omega", "Ragnarok"],
@@ -205,7 +209,7 @@ class Characters
 
         let otp = '';
         if (character.otp) {
-            otp = `<div><input type="text" class="otp2" id="otp2" placeholder="OTP"></div>`
+            otp = `<div><input type="text" class="otp2" id="otp2" placeholder="OTP" autofocus></div>`
         }
 
         $view.html(`
@@ -226,6 +230,11 @@ class Characters
         `);
 
         $view.addClass('open');
+
+        // auto focus
+        if (character.otp) {
+            $('.otp2').focus();
+        }
     }
 
     /**
@@ -256,6 +265,9 @@ class Characters
         // get otp if its needed
         const otp = $('#otp2').val();
 
+        // load custom settings
+        SettingsManager.loadSettings();
+
         // login to character
         Login.login(character.username, character.password, otp, response => {
             // launch game!
@@ -264,6 +276,12 @@ class Characters
 
             // hide notice after 5 seconds
             setTimeout(() => {
+                // if close app on game start is set
+                if (Settings.closeAppOnGameStart) {
+                    require('electron').remote.getCurrentWindow().close();
+                    return;
+                }
+
                 Notice.hide();
             }, 3000);
         });

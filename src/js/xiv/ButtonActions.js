@@ -47,17 +47,19 @@ class ButtonActions
             const expansion = document.getElementById('expansion').value.trim();
             const language = document.getElementById('language').value.trim();
             const region = document.getElementById('region').value.trim();
-            const raelyslanguage = document.getElementById('raelysLanguage').value.trim();
+            const raelysLanguage = document.getElementById('raelysLanguage').value.trim();
+            const closeAppOnGameStart = document.getElementById('closeAppOnGameStart').value.trim();
 
             SettingsManager.saveSettings({
                 gamePath: gamePath,
                 expansion: expansion,
                 language: language,
                 region: region,
-                raelysLanguage: raelyslanguage
+                raelysLanguage: raelysLanguage,
+                closeAppOnGameStart: (closeAppOnGameStart === "true")
             });
 
-            document.getElementById('settings-form').classList.remove('open');
+            $('.settings-form').removeClass('open');
         });
 
         $html.on('click', '#OpenLauncherSettingsWindow', event => {

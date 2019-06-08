@@ -44,6 +44,7 @@ class SettingsManager
         Settings.region = this.custom.region; //Game Language
         Settings.RaelysAPILanguage = this.custom.raelysLanguage;
         Settings.expansion = this.custom.expansion;
+        Settings.closeAppOnGameStart = this.custom.closeAppOnGameStart;
         
         // populate forms
         for (let option in this.custom) {

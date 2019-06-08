@@ -4,7 +4,7 @@ A custom built launcher for FFXIV written in Javascript on Nodejs via Electron. 
 
 > This is a Javascript implementation of: https://github.com/goaaats/FFXIVQuickLauncher
 
-
+> Note: DO NOT run npm commands in this project, it will install different versions of packages and break stuff.
 
 ## Source files
 
