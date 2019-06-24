@@ -1,3 +1,4 @@
+import $ from 'webpack-zepto';
 import XIVAPI from "./XIVAPI";
 const moment = require("moment");
 

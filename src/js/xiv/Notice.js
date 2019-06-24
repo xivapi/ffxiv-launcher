@@ -1,3 +1,5 @@
+import $ from 'webpack-zepto';
+
 class Notice
 {
     constructor()

@@ -5,3 +5,7 @@ dist
 !/data/.gitkeep
 yarn-error.log
 .vs
+public/assets/*.js
+public/assets/*.json
+public/assets/css
+public/assets/js
