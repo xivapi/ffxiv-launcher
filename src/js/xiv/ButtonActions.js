@@ -1,3 +1,4 @@
+import $ from 'webpack-zepto';
 import GameLauncher from "./GameLauncher";
 import Characters from "./Characters";
 import SettingsManager from "./SettingsManager";

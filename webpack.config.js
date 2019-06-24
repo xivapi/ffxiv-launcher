@@ -6,6 +6,7 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     .addEntry('js/app', './src/js/app.js')
     .addStyleEntry('css/app', Encore.isProduction() ? './src/css/app.scss' : './src/css/debug.scss')
+    .enableSingleRuntimeChunk()
     .enableSassLoader()
 ;
 // enaboe node environment
