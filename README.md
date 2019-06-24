@@ -16,10 +16,12 @@ For images, you must host them somewhere, eg Github, Imgur or I can put them on 
 
 ## Getting started
 
-- Download repo
-- cd `/repo/`
-- `yarn`
-- Start it: `electron .`
+```sh
+git clone 'git@github.com:xivapi/ffxiv-launcher.git' # Clone the repo!
+cd ffxiv-launcher
+yarn install        # Snag the dependencies!
+yarn start          # Build and run it locally in dev mode!
+```
 
 Electron is basically a chrome browser without a head (no address bar, buttons etc).
 
@@ -31,13 +33,13 @@ Make sure your IDE is set to: EMCAScript 6
 
 (If you need SASS installed: `yarn add sass-loader node-sass --dev`)
 
-- `yarn run encore dev --watch`
+- `yarn build` or `yarn build-dev`.
 
 ## Compile
 
-- `yarn dist` - This also compiles the CSS.
+- `yarn dist` - This also compiles the CSS and builds the electron app installer.
 
-This will build an installation to: `/dist/FFXIV-Launcher Setup <version>.exe` which you can share and install.
+This will build the installer to: `/dist/FFXIV-Launcher Setup <version>.exe` which you can share and install.
 
 ## Dev Tools
 

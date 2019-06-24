@@ -6,6 +6,7 @@
   "license": "MIT",
   "devDependencies": {
     "@symfony/webpack-encore": "^0.27.0",
+    "concurrently": "^4.1.0",
     "electron": "^5.0.1",
     "electron-builder": "^20.38.4",
     "electron-packager": "^13.0.1",
@@ -23,7 +24,16 @@
     }
   },
   "scripts": {
+    "watch": "encore dev --watch",
+    "electron-dev": "electron . --dev",
+    "start": "concurrently -k -c \"green,blue\" \"yarn:watch\" \"yarn:electron-dev\"",
+    "prestart-prod": "encore prod",
+    "start-prod": "electron . --dev",
+    "build-dev": "encore dev",
+    "build": "encore prod",
+    "prepack": "yarn run build",
     "pack": "electron-builder --dir",
+    "predist": "yarn run build",
     "dist": "electron-builder"
   },
   "dependencies": {
