@@ -1,11 +1,39 @@
-import {machineId, machineIdSync} from 'node-machine-id';
 import Settings from './Settings';
+import os from 'os';
+import crypto from 'crypto';
 
 /**
  * This handles all auto-login logic
  */
 class XIVRequest
 {
+    constructor() {
+        this.machineId = this.generateMachineId();
+        console.log("XIVRequest:constructor -> Generated MachineID: " + this.machineId);
+    }
+
+    printHex(char) {
+        return ("0" + char.valueOf().toString(16)).substr(-2);
+    };
+
+    generateMachineId() {
+        // Uses the same method as goaaats/FFXIVQuickLauncher.
+        // See: https://github.com/goaaats/FFXIVQuickLauncher/blob/master/XIVLauncher/XIVGame.cs#L322
+        const idstring = [ os.hostname().toUpperCase(), os.userInfo().username, `${os.type()} ${os.release()}`, os.cpus().length ].join('');
+        var bytes = [];
+
+        for (var i = 0; i < idstring.length; ++i) {
+            bytes.concat([idstring.charCodeAt(i)]);
+        }
+
+        // Hash this data, yank the first 4 bytes and grab a checksum.
+        var shasum = crypto.createHash('SHA1').update(Int8Array.from(bytes)).digest().slice(0, 4);
+        var checksum = Math.abs(256 - (shasum.reduce((a, b) => a + b) % 256));
+
+        // Put it together as a hex byte string.
+        return [ this.printHex(checksum), ... shasum ].reduce((s, b) => s + this.printHex(b));
+    }
+
     /**
      * Perform a request action
      */
@@ -57,7 +85,7 @@ class XIVRequest
             requestCert: true,
             agent: false,
             headers: {
-                'User-Agent': Settings.se.UserAgent.replace('-id-', machineIdSync({original: true})),
+                'User-Agent': Settings.se.UserAgent.replace('-id-', this.machineId),
             },
         };
 
@@ -92,7 +120,7 @@ class XIVRequest
             requestCert: true,
             agent: false,
             headers: {
-                'User-Agent': Settings.se.UserAgent.replace('-id-', machineIdSync({original: true})),
+                'User-Agent': Settings.se.UserAgent.replace('-id-', this.machineId),
                 'Content-Type': Settings.se.LoginOAuthActionRequest.ContentType,
                 'Content-Length': postdata.length,
                 'Referer': Settings.se.LoginOAuthActionRequest.Referer
@@ -128,7 +156,7 @@ class XIVRequest
             agent: false,
             headers: {
                 'X-Hash-Check': 'X-Hash-Check',
-                'User-Agent': Settings.se.UserAgent.replace('-id-', machineIdSync({original: true})),
+                'User-Agent': Settings.se.UserAgent.replace('-id-', this.machineId),
                 'Content-Type': Settings.se.LoginGameVersionRequest.ContentType,
                 'Content-Length': localGameHash.length,
                 'Referer': Settings.se.LoginGameVersionRequest.Referer
