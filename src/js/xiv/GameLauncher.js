@@ -41,6 +41,13 @@ class GameLauncher
      */
     requestLogin()
     {
+        const invalid = []
+        $('#AddCharacterForm').find('input:invalid').each((i, o)=>invalid.push(o.placeholder));
+        if (invalid) {
+            Notice.show("<h1>Some inputs were invalid!</h1>" +
+                "<p>Please check the following: " + invalid.join(", "));
+            return;
+        }
         const name = $('#characterName').val().trim();
         const server = $('#characterServer').val().trim();
         const username = $('#username').val().trim();
