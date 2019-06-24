@@ -209,7 +209,7 @@ class Characters
 
         let otp = '';
         if (character.otp) {
-            otp = `<div><input type="text" class="otp2" id="otp2" placeholder="OTP" autofocus></div>`
+            otp = `<div><input type="text" class="otp2" id="otp2" placeholder="OTP" pattern="^\d*$" maxlength="6" minlength="6" autofocus></div>`
         }
 
         $view.html(`
@@ -264,6 +264,10 @@ class Characters
 
         // get otp if its needed
         const otp = $('#otp2').val();
+        if (otp && ! $('#otp2')[0].checkValidity()) {
+            Notice.show('<h1>Your OTP is invalid!</h1><p>One Time Passwords are six digit numbers provided by the SQEX Token mobile app.</p>');
+            return;
+        }
 
         // load custom settings
         SettingsManager.loadSettings();
