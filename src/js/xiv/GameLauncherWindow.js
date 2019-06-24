@@ -44,8 +44,10 @@ class GameLauncherWindow
          * Set a random background
          */
         const bgNumber = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-        $('main').css('background', `url('https://xivapi.com/launcher/background${bgNumber}.jpg')`);
-        $('main').css('background-size', 'cover');
+        const $main = $('main');
+
+        $main.css('background', `url('https://xivapi.com/launcher/background${bgNumber}.jpg')`);
+        $main.css('background-size', 'cover');
     }
 }
 

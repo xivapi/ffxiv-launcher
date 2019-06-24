@@ -5,7 +5,7 @@ module.exports = {
     custom: {
         // XIVAPI
         xivapiEndpoint: "https://xivapi.com",
-        xivapiPollDelay: 10000,
+        xivapiPollDelay: 60 * 1000,
         RaelysAPIProtocol: "http://",
         RaelysAPIURL: "lodestone.raelys.com",
         RaelysAPIEndpoint: "http://na.lodestone.raelys.com",

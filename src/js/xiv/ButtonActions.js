@@ -95,7 +95,9 @@ class ButtonActions
         });
 
         $html.on('keyup', '#otp2', event => {
-            if (event.keyCode === 13) {
+            const key = event.which || event.charCode || event.keyCode;
+
+            if (key === 13) {
                 $('.btn-start-game').trigger('click');
             }
         })

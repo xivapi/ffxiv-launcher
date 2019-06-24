@@ -10,7 +10,11 @@ class Notice
         // hide the notice on click (anywhere)
         this.$noticeFade.on('click', event => {
             this.hide();
-        })
+        });
+
+        this.$notice.on('click', event => {
+            this.hide();
+        });
     }
 
     show(message)

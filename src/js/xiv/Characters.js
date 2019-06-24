@@ -73,32 +73,38 @@ class Characters
             // only process null characters
             if (character.lsid === null) {
                 // search for character
-                XIVAPI.searchCharacter(character.name, character.server, response => {
-                    if (response.Pagination.ResultsTotal > 0) {
-                        for(let i in response.Results) {
-                            let result = response.Results[i];
+                // the timeout here is a bit of a hack to prevent getting rate limited on XIVAPI if you have 10+ characters
+                setTimeout(() => {
+                    XIVAPI.searchCharacter(character.name, character.server, response => {
+                        if (response.Pagination.ResultsTotal > 0) {
+                            for(let i in response.Results) {
+                                let result = response.Results[i];
 
-                            // if found, update character
-                            if (result.Name === character.name && result.Selection === character.Server) {
-                                // update character and request to save it
-                                character.avatar = result.Avatar;
-                                character.lsid = result.ID;
-                                this.saveCharacter(character);
-                                break;
+                                // if found, update character
+                                if (result.Name === character.name && result.Selection === character.Server) {
+                                    // update character and request to save it
+                                    character.avatar = result.Avatar;
+                                    character.lsid = result.ID;
+                                    this.saveCharacter(character);
+                                    break;
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                }, Math.floor((Math.random() * 5000) + 1));
             }
 
             // process adding to XIVAPI
             if (character.lsid !== null && character.api === false) {
-                XIVAPI.getCharacter(character.lsid, response => {
-                    if (response.Info.Character.State === 2) {
-                        character.api = true;
-                        this.saveCharacter(character);
-                    }
-                });
+                // the timeout here is a bit of a hack to prevent getting rate limited on XIVAPI if you have 10+ characters
+                setTimeout(() => {
+                    XIVAPI.getCharacter(character.lsid, response => {
+                        if (response.Info.Character.State === 2) {
+                            character.api = true;
+                            this.saveCharacter(character);
+                        }
+                    });
+                }, Math.floor((Math.random() * 5000) + 1));
             }
         }
     }
@@ -210,7 +216,7 @@ class Characters
 
         let otp = '';
         if (character.otp) {
-            otp = `<div><input type="text" class="otp2" id="otp2" placeholder="OTP" pattern="^\d*$" maxlength="6" minlength="6" autofocus></div>`
+            otp = `<div><input type="text" class="otp2" id="otp2" placeholder="OTP" maxlength="6" minlength="6" required autofocus></div>`
         }
 
         $view.html(`
@@ -259,22 +265,25 @@ class Characters
             Notice.show('<h1>Character save invalid</h1><p>could not find character in load list</p>');
         }
 
-        // notify user
-        Notice.show('<h1>Starting Game</h1><p>Logging into character...</p>');
-        this.hideCharacterView();
-
         // get otp if its needed
-        const otp = $('#otp2').val();
-        if (otp && ! $('#otp2')[0].checkValidity()) {
+        const $otp = $('#otp2');
+        const otpCode = $otp.val();
+        const otpNumeric = !isNaN(parseFloat(otpCode)) && isFinite(otpCode);
+
+        if (otpCode && (otpCode.length !== 6 || otpNumeric === false)) {
             Notice.show('<h1>Your OTP is invalid!</h1><p>One Time Passwords are six digit numbers provided by the SQEX Token mobile app.</p>');
             return;
         }
+
+        // notify user
+        Notice.show('<h1>Starting Game</h1><p>Logging into character...</p>');
+        this.hideCharacterView();
 
         // load custom settings
         SettingsManager.loadSettings();
 
         // login to character
-        Login.login(character.username, character.password, otp, response => {
+        Login.login(character.username, character.password, otpCode, response => {
             // launch game!
             Notice.show('<h1>Starting Game</h1><p>Launching game!</p>');
             GameLauncher.launchGame(response.userRealSid);

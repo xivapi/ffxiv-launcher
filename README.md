@@ -33,7 +33,7 @@ Make sure your IDE is set to: EMCAScript 6
 
 (If you need SASS installed: `yarn add sass-loader node-sass --dev`)
 
-- `yarn build` or `yarn build-dev`.
+- `yarn build` or `yarn build-dev` or `yarn build-dev --watch`
 
 ## Compile
 

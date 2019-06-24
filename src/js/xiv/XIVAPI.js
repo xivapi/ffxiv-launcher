@@ -12,6 +12,10 @@ class XIVAPI
 
     searchCharacter(name, server, callback)
     {
+        if (name.split(' ').length != 2) {
+            return;
+        }
+
         name = name.replace(' ', '+');
         const params = [
             `name=${name}`,

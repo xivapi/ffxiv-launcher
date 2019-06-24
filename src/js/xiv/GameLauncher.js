@@ -41,13 +41,14 @@ class GameLauncher
      */
     requestLogin()
     {
-        const invalid = []
+        const invalid = [];
         $('#AddCharacterForm').find('input:invalid').each((i, o)=>invalid.push(o.placeholder));
+
         if (invalid) {
-            Notice.show("<h1>Some inputs were invalid!</h1>" +
-                "<p>Please check the following: " + invalid.join(", "));
+            Notice.show(`<h1>Some inputs were invalid!</h1><p>Please check the following: ${invalid.join(", ")}</p>`);
             return;
         }
+
         const name = $('#characterName').val().trim();
         const server = $('#characterServer').val().trim();
         const username = $('#username').val().trim();
@@ -92,7 +93,12 @@ class GameLauncher
 
                 // hide add character view
                 $('.add-character-form').removeClass('open');
-                Notice.show('<h1>Saved character!</h1><p>Click on the character on the right to start the game.</p>')
+                Notice.show('<h1>Saved character!</h1><p>Click on the character on the right to start the game.</p>');
+
+                // auto close notice after 5 seconds
+                setTimeout(() => {
+                    Notice.hide();
+                }, 5000);
             } else {
                 Notice.show('<h1>Login failed</h1><p>Either your Username/Password/OTP is wrong or the game is down for maintenance right now.</p>');
             }
