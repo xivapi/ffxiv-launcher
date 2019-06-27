@@ -182,8 +182,12 @@ class XIVRequest
         return line
             .replace('<input type="hidden" name="_STORED_" value="', '')
             .replace('window.external.user("login=auth,ok,sid,', '')
+            .replace(',terms,1,region,2,etmadd,0,playable,1,ps3pkg,0,maxex,3,product,1");', '')
+            .replace(',terms,1,region,3,etmadd,0,playable,1,ps3pkg,0,maxex,3,product,1");', '')
             .replace(',terms,1,region,2,etmadd,0,playable,1,ps3pkg,0,maxex,2,product,1");', '')
             .replace(',terms,1,region,3,etmadd,0,playable,1,ps3pkg,0,maxex,2,product,1");', '')
+            .replace(',terms,1,region,2,etmadd,0,playable,1,ps3pkg,0,maxex,1,product,1");', '')
+            .replace(',terms,1,region,3,etmadd,0,playable,1,ps3pkg,0,maxex,1,product,1");', '')
             .replace(',terms,1,region,2,etmadd,0,playable,1,ps3pkg,0,maxex,0,product,1");', '')
             .replace(',terms,1,region,3,etmadd,0,playable,1,ps3pkg,0,maxex,0,product,1");', '')
             .replace('">', '')

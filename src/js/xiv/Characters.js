@@ -216,7 +216,7 @@ class Characters
 
         let otp = '';
         if (character.otp) {
-            otp = `<div><input type="text" class="otp2" id="otp2" placeholder="OTP" maxlength="6" minlength="6" required autofocus></div>`
+            otp = `<div><input type="text" class="otp2" id="otp2" placeholder="OTP" maxlength="10" minlength="6" required autofocus></div>`
         }
 
         $view.html(`

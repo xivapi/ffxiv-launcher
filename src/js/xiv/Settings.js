@@ -61,7 +61,8 @@ module.exports = {
     expansions: {
         0: 'A Realm Reborn',
         1: 'Heavensward',
-        2: 'Stormblood'
+        2: 'Stormblood',
+        3: 'ShadowBringers'
     },
     // the numbers of these are important
     regions: {
