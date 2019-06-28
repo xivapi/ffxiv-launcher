@@ -1,3 +1,4 @@
+import $ from 'webpack-zepto';
 import Settings from './Settings';
 import SettingsManager from './SettingsManager';
 import Login from './Login';
@@ -41,6 +42,9 @@ class GameLauncher
      */
     requestLogin()
     {
+        /*
+        todo - fix, this is trying to valid otp, but not everyone has one...
+         
         const invalid = [];
         $('#AddCharacterForm').find('input:invalid').each((i, o)=>invalid.push(o.placeholder));
 
@@ -48,6 +52,8 @@ class GameLauncher
             Notice.show(`<h1>Some inputs were invalid!</h1><p>Please check the following: ${invalid.join(", ")}</p>`);
             return;
         }
+
+        */
 
         const name = $('#characterName').val().trim();
         const server = $('#characterServer').val().trim();

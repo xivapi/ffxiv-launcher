@@ -2,7 +2,7 @@
   "name": "FFXIV-Launcher",
   "description": "A custom FFXIV launcher",
   "author": "Josh Freeman <josh@viion.co.uk>",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "license": "MIT",
   "devDependencies": {
     "@symfony/webpack-encore": "^0.27.0",
