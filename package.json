@@ -7,7 +7,7 @@
   "devDependencies": {
     "@symfony/webpack-encore": "^0.27.0",
     "concurrently": "^4.1.0",
-    "electron": "^5.0.1",
+    "electron": "^7.2.4",
     "electron-builder": "^20.38.4",
     "electron-packager": "^13.0.1",
     "node-sass": "^4.12.0",
